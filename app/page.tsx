@@ -1,8 +1,16 @@
+import HeroSection from "@/components/home/HeroSection";
+import ServicesSection from "@/components/home/ServicesSection";
+import FeaturedProjectsSection from "@/components/home/FeaturedProjectsSection";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
+import { services, featuredProjects, stats, testimonials } from "@/lib/data/homeData";
+
 export default function Home() {
   return (
-    <main className="min-h-screen p-8">
-      <h1 className="text-4xl font-bold mb-4">                        Welcome to  Verlux</h1>
-      <p className="text-lg">                                     This is Muslim Ako's site!</p>
-    </main>
-  )
+    <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
+      <HeroSection stats={stats} />
+      <ServicesSection services={services} />
+      <FeaturedProjectsSection projects={featuredProjects} />
+      <TestimonialsSection testimonials={testimonials} />
+    </div>
+  );
 }
