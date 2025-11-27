@@ -1,126 +1,164 @@
 "use client";
 
-import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Sparkles,
   ArrowRight,
   Play,
-  TrendingUp,
-  Target,
-  Star,
-  Zap,
 } from "lucide-react";
-// import Link from "next/link";
-import type { Stat } from "@/lib/data/homeData";
 
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  TrendingUp,
-  Target,
-  Star,
-  Zap,
-};
-
-interface HeroSectionProps {
-  stats: Stat[];
+declare global {
+  interface Window {
+    YT: any;
+    onYouTubeIframeAPIReady: () => void;
+  }
 }
 
-export default function HeroSection({ stats }: HeroSectionProps) {
+export default function HeroSection() {
+  const playerRef = useRef<any>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    // Load YouTube IFrame API
+    if (!window.YT) {
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      const firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+
+      window.onYouTubeIframeAPIReady = () => {
+        if (iframeRef.current) {
+          playerRef.current = new window.YT.Player(iframeRef.current, {
+            events: {
+              onStateChange: (event: any) => {
+                if (event.data === window.YT.PlayerState.PLAYING) {
+                  checkVideoTime();
+                }
+              },
+              onReady: () => {
+                // Start checking time once video is ready
+                checkVideoTime();
+              },
+            },
+          });
+        }
+      };
+    } else {
+      // API already loaded
+      if (iframeRef.current && !playerRef.current) {
+        playerRef.current = new window.YT.Player(iframeRef.current, {
+          events: {
+            onStateChange: (event: any) => {
+              if (event.data === window.YT.PlayerState.PLAYING) {
+                checkVideoTime();
+              }
+            },
+            onReady: () => {
+              checkVideoTime();
+            },
+          },
+        });
+      }
+    }
+
+    let intervalId: NodeJS.Timeout;
+
+    const checkVideoTime = () => {
+      if (intervalId) clearInterval(intervalId);
+      
+      intervalId = setInterval(() => {
+        if (playerRef.current) {
+          try {
+            const currentTime = playerRef.current.getCurrentTime();
+            // 1:30 = 90 seconds
+            if (currentTime >= 90) {
+              playerRef.current.seekTo(0, true);
+              playerRef.current.playVideo();
+            }
+          } catch (error) {
+            // Player might not be ready yet
+            console.error('Error checking video time:', error);
+          }
+        }
+      }, 1000); // Check every second
+    };
+
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 pt-24 sm:pt-20 pb-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="text-center lg:text-left">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-teal-600 to-cyan-500 text-white mb-8 shadow-lg shadow-teal-500/30">
-              <Sparkles className="w-5 h-5" />
-              <span className="text-sm font-bold tracking-wider uppercase">Award-Winning Excellence</span>
-            </div>
-            
-            {/* Main Heading */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight text-gray-900">
-              Building Your Dreams,
-              <br />
-              <span className="bg-gradient-to-r from-teal-600 via-cyan-500 to-teal-600 bg-clip-text text-transparent">
-                One Brick at a Time
-              </span>
-            </h1>
-            
-            {/* Subheading */}
-            <p className="text-xl sm:text-2xl text-gray-600 mb-12 leading-relaxed font-medium">
-              Transform your vision into reality with precision, passion, and unparalleled expertise in construction.
-            </p>
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center lg:justify-start">
-              <Button 
-                size="lg" 
-                className="group text-base sm:text-lg px-6 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-7 bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white border-0 rounded-full font-bold shadow-2xl hover:shadow-teal-500/50 hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-              >
-                Start Your Project
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="text-base sm:text-lg px-6 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-7 border-2 border-gray-900 text-gray-900 bg-white hover:bg-gray-900 hover:text-white rounded-full font-bold hover:scale-105 transition-all duration-300 shadow-lg w-full sm:w-auto"
-              >
-                <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-                View Our Work
-              </Button>
-            </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 sm:pt-20 pb-20">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0 w-full h-full overflow-hidden bg-gray-900">
+        <iframe
+          ref={iframeRef}
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/embed/ko_OMynE3Bo?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&start=0&enablejsapi=1"
+          title="Construction Overview"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          frameBorder="0"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          style={{ 
+            border: 'none',
+            width: '100vw',
+            height: '56.25vw',
+            minHeight: '100vh',
+            minWidth: '177.77777778vh',
+            zIndex: 0,
+          }}
+        />
+        {/* Fallback gradient if video doesn't load */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 pointer-events-none" style={{ zIndex: -1 }}></div>
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 pointer-events-none" style={{ zIndex: 1 }}></div>
+      </div>
 
-            {/* Stats Grid - Desktop only */}
-            <div className="hidden lg:grid grid-cols-4 gap-6 pt-8 border-t-2 border-gray-200">
-              {stats.map((stat, index) => {
-                const Icon = iconMap[stat.icon];
-                if (!Icon) return null;
-                return (
-                  <div key={index} className="group">
-                    <Icon className={`w-6 h-6 ${stat.color} mb-3 group-hover:scale-125 transition-transform`} />
-                    <div className="text-3xl font-black text-gray-900 mb-1">{stat.value}</div>
-                    <div className="text-xs text-gray-500 uppercase tracking-wider font-semibold">
-                      {stat.label}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+      {/* Content */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-teal-600 to-cyan-500 text-white mb-8 shadow-lg shadow-teal-500/30">
+            <Sparkles className="w-5 h-5" />
+            <span className="text-sm font-bold tracking-wider uppercase">Award-Winning Excellence</span>
           </div>
-
-          {/* Image Container */}
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-            <div className="relative aspect-[4/3] lg:aspect-square">
-              <Image
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop"
-                alt="House construction site with construction workers building a residential home"
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              {/* Subtle overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-            </div>
+          
+          {/* Main Heading */}
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight text-white">
+            Building Your Dreams,
+            <br />
+            <span className="bg-gradient-to-r from-teal-400 via-cyan-300 to-teal-400 bg-clip-text text-transparent">
+              One Brick at a Time
+            </span>
+          </h1>
+          
+          {/* Subheading */}
+          <p className="text-xl sm:text-2xl text-gray-100 mb-12 leading-relaxed font-medium">
+            Transform your vision into reality with precision, passion, and unparalleled expertise in construction.
+          </p>
+          
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg" 
+              className="group text-base sm:text-lg px-6 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-7 bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white border-0 rounded-full font-bold shadow-2xl hover:shadow-teal-500/50 hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+            >
+              Start Your Project
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="text-base sm:text-lg px-6 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-7 border-2 border-white text-white bg-transparent hover:bg-white hover:text-gray-900 rounded-full font-bold hover:scale-105 transition-all duration-300 shadow-lg w-full sm:w-auto"
+            >
+              <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
+              View Our Work
+            </Button>
           </div>
-        </div>
-
-        {/* Stats Row - Mobile only (after image) */}
-        <div className="lg:hidden flex items-center justify-between gap-4 mt-8 pt-6 border-t-2 border-gray-200">
-          {stats.map((stat, index) => {
-            const Icon = iconMap[stat.icon];
-            if (!Icon) return null;
-            return (
-              <div key={index} className="group flex-1 text-center">
-                <Icon className={`w-4 h-4 ${stat.color} mb-2 mx-auto group-hover:scale-125 transition-transform`} />
-                <div className="text-xl font-black text-gray-900 mb-0.5">{stat.value}</div>
-                <div className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold leading-tight">
-                  {stat.label}
-                </div>
-              </div>
-            );
-          })}
         </div>
       </div>
     </section>

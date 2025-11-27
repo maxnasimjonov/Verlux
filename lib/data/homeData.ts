@@ -5,6 +5,7 @@ export interface Service {
   description: string;
   gradient: string;
   angle: string;
+  image: string;
 }
 
 export interface Project {
@@ -44,6 +45,7 @@ export const services: Service[] = [
     description: "Custom homes built to your exact specifications with precision and care",
     gradient: "from-emerald-500 via-teal-500 to-cyan-500",
     angle: "rotate-3",
+    image: "https://www.ctvnews.ca/resizer/v2/FCO6HRFZCK5EYYRFF7A7ALFANY.jpg?smart=true&auth=b05bc2fa21704d0e0e6db662765107d3f331ce261a1875a62dbaa57a4dd75a54&width=1400&height=787",
   },
   {
     icon: "Building2",
@@ -52,6 +54,7 @@ export const services: Service[] = [
     description: "Professional commercial building solutions that scale with your business",
     gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
     angle: "-rotate-2",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
   },
   {
     icon: "Hammer",
@@ -60,6 +63,7 @@ export const services: Service[] = [
     description: "Transform your existing space into something extraordinary",
     gradient: "from-orange-500 via-red-500 to-rose-500",
     angle: "rotate-2",
+    image: "https://www.bankrate.com/brp/2025/03/17162426/Whats-the-difference-between-a-home-renovation-and-a-remodel.jpeg?auto=webp&optimize=high&crop=16:9",
   },
   {
     icon: "Wrench",
@@ -68,6 +72,7 @@ export const services: Service[] = [
     description: "Complete remodeling services with attention to every detail",
     gradient: "from-amber-500 via-yellow-500 to-lime-500",
     angle: "-rotate-1",
+    image: "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?q=80&w=2070&auto=format&fit=crop",
   },
   {
     icon: "Layers",
@@ -76,6 +81,7 @@ export const services: Service[] = [
     description: "Expert roof installation and repair that stands the test of time",
     gradient: "from-blue-500 via-indigo-500 to-purple-500",
     angle: "rotate-1",
+    image: "https://primeroofingfl.com/wp-content/uploads/2025/05/roofing-contractor-at-work.jpg",
   },
   {
     icon: "Flower2",
@@ -84,6 +90,7 @@ export const services: Service[] = [
     description: "Beautiful outdoor spaces that complement your architecture",
     gradient: "from-green-500 via-emerald-500 to-teal-500",
     angle: "-rotate-2",
+    image: "https://captainhandy.ca/wp-content/uploads/2024/02/Captain_Handy_18-watermarked-1024x683.webp",
   },
 ];
 
