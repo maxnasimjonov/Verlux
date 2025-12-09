@@ -9,10 +9,8 @@ import { Construction } from "lucide-react";
 import { services } from "@/lib/data/homeData";
 
 const navLinks = [
-  { href: "/#projects", label: "Projects" },
+  { href: "/projects", label: "Projects" },
   { href: "/about", label: "About Us" },
-  { href: "/#pricing", label: "Pricing" },
-  { href: "/#contact", label: "Contact Us" },
 ];
 
 export default function Navbar() {
@@ -143,7 +141,7 @@ export default function Navbar() {
               className="bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white rounded-full px-6 py-2 font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
               asChild
             >
-              <Link href="/contact">
+              <Link href="/quote">
                 Get Quote
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
@@ -238,7 +236,7 @@ export default function Navbar() {
                 className="w-full bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white rounded-full py-6 font-bold shadow-lg"
                 asChild
               >
-                <Link href="/contact" onClick={() => setIsOpen(false)}>
+                <Link href="/quote" onClick={() => setIsOpen(false)}>
                   Get Free Quote
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>

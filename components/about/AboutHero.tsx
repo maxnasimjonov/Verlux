@@ -18,7 +18,7 @@ export default function AboutHero() {
             </div>
 
             {/* Content */}
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-24 sm:mt-20">
                 <div className="max-w-3xl">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-500/20 border border-teal-500/30 text-teal-300 mb-6 backdrop-blur-sm">
                         <span className="text-sm font-bold tracking-wider uppercase">About Verlux</span>
