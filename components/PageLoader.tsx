@@ -3,25 +3,124 @@
 import { useEffect, useState } from "react";
 import { Construction, Hammer, Wrench, HardHat } from "lucide-react";
 
-interface PageLoaderProps {
+interface FirstVisitLoaderProps {
   children: React.ReactNode;
   minimumDelay?: number;
 }
 
-export default function PageLoader({ children, minimumDelay = 300 }: PageLoaderProps) {
-  const [isLoading, setIsLoading] = useState(true);
+export default function FirstVisitLoader({ children, minimumDelay = 800 }: FirstVisitLoaderProps) {
+  // Check localStorage immediately to avoid flash
+  const [isLoading, setIsLoading] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return localStorage.getItem("verlux_has_visited") !== "true";
+  });
 
   useEffect(() => {
+    // Check if this is the first visit
+    const hasVisitedBefore = typeof window !== "undefined" 
+      ? localStorage.getItem("verlux_has_visited") === "true"
+      : true;
+
+    if (hasVisitedBefore) {
+      // User has visited before, skip loading
+      setIsLoading(false);
+      return;
+    }
+
+    // First visit - show loading and preload assets
     const startTime = Date.now();
 
     // Preload critical assets
     const preloadAssets = async () => {
-      // Video is now hosted on Cloudinary, no need to preload locally
+      const pathname = typeof window !== "undefined" ? window.location.pathname : "";
+      
+      // Base critical images that appear on most pages
+      let criticalImages: string[] = [
+        // About page hero
+        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop",
+        // Company story image
+        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop",
+        // Team member images
+        "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop",
+      ];
+
+      // Page-specific images
+      if (pathname === "/") {
+        // Home page service images
+        criticalImages.push(
+          "https://www.ctvnews.ca/resizer/v2/FCO6HRFZCK5EYYRFF7A7ALFANY.jpg?smart=true&auth=b05bc2fa21704d0e0e6db662765107d3f331ce261a1875a62dbaa57a4dd75a54&width=1400&height=787",
+          "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
+          "https://www.bankrate.com/brp/2025/03/17162426/Whats-the-difference-between-a-home-renovation-and-a-remodel.jpeg?auto=webp&optimize=high&crop=16:9",
+          "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?q=80&w=2070&auto=format&fit=crop",
+          "https://primeroofingfl.com/wp-content/uploads/2025/05/roofing-contractor-at-work.jpg",
+          "https://captainhandy.ca/wp-content/uploads/2024/02/Captain_Handy_18-watermarked-1024x683.webp",
+          // Featured projects
+          "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2074&auto=format&fit=crop"
+        );
+      } else if (pathname === "/projects") {
+        // Projects page - preload first few project images
+        criticalImages.push(
+          "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?q=80&w=2070&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2074&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop"
+        );
+      }
+
+      // Preload images
+      const imagePromises = criticalImages.map((src) => {
+        return new Promise<void>((resolve) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = () => resolve();
+          img.onerror = () => resolve(); // Don't block on error
+        });
+      });
+
+      // Wait for Cloudinary video iframe to be ready
+      const videoPromise = new Promise<void>((resolve) => {
+        // Check if we're on the home page (where video is used)
+        if (pathname === "/") {
+          const checkVideo = () => {
+            const iframe = document.querySelector('iframe[src*="cloudinary.com"]');
+            if (iframe) {
+              // Give iframe time to load
+              setTimeout(() => resolve(), 800);
+            } else {
+              // If no video on this page, resolve immediately
+              resolve();
+            }
+          };
+          // Check after a short delay to allow iframe to be added to DOM
+          setTimeout(checkVideo, 200);
+          // Timeout after 2.5 seconds
+          setTimeout(() => resolve(), 2500);
+        } else {
+          resolve(); // Not on home page, no video to wait for
+        }
+      });
+
+      // Wait for all assets to load or timeout
+      await Promise.race([
+        Promise.all([...imagePromises, videoPromise]),
+        new Promise((resolve) => setTimeout(resolve, 3500)), // Max 3.5 seconds
+      ]);
 
       // Ensure minimum delay
       const elapsed = Date.now() - startTime;
       const remainingDelay = Math.max(0, minimumDelay - elapsed);
       await new Promise((resolve) => setTimeout(resolve, remainingDelay));
+
+      // Mark as visited
+      if (typeof window !== "undefined") {
+        localStorage.setItem("verlux_has_visited", "true");
+      }
 
       setIsLoading(false);
     };

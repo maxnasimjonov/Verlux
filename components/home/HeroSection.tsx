@@ -13,10 +13,10 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 sm:pt-20 pb-20">
       {/* Video Background */}
-      <div className="absolute inset-0 z-0 w-full h-full overflow-hidden bg-gray-900">
+      <div className="absolute inset-0 z-0 w-full h-full overflow-hidden bg-gray-900 cloudinary-video-container">
         <iframe
-          src="https://player.cloudinary.com/embed/?cloud_name=abdulgafar4&public_id=overview_igxyad&profile=cld-default&autoplay=true&loop=true&muted=true"
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover"
+          src="https://player.cloudinary.com/embed/?cloud_name=abdulgafar4&public_id=overview_igxyad&profile=cld-looping&autoplay=true&muted=true&loop=true&controls=false"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover pointer-events-none"
           style={{
             width: '100vw',
             height: '56.25vw',

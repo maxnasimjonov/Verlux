@@ -15,30 +15,57 @@ export default function LoadingWithDelay({ minimumDelay = 800 }: LoadingWithDela
 
     // Preload critical images and videos
     const preloadAssets = async () => {
-      // Video is now hosted on Cloudinary, no need to preload locally
-      const assets: string[] = [];
+      // Critical images that appear on most pages
+      const criticalImages: string[] = [
+        // About page hero
+        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop",
+        // Company story image
+        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop",
+        // Team member images
+        "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop",
+        // Home page service images
+        "https://www.ctvnews.ca/resizer/v2/FCO6HRFZCK5EYYRFF7A7ALFANY.jpg?smart=true&auth=b05bc2fa21704d0e0e6db662765107d3f331ce261a1875a62dbaa57a4dd75a54&width=1400&height=787",
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
+        "https://www.bankrate.com/brp/2025/03/17162426/Whats-the-difference-between-a-home-renovation-and-a-remodel.jpeg?auto=webp&optimize=high&crop=16:9",
+        "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?q=80&w=2070&auto=format&fit=crop",
+        "https://primeroofingfl.com/wp-content/uploads/2025/05/roofing-contractor-at-work.jpg",
+        "https://captainhandy.ca/wp-content/uploads/2024/02/Captain_Handy_18-watermarked-1024x683.webp",
+      ];
 
-      const preloadPromises = assets.map((src) => {
+      const preloadPromises = criticalImages.map((src) => {
         return new Promise<void>((resolve) => {
-          if (src.endsWith(".mp4")) {
-            const video = document.createElement("video");
-            video.preload = "auto";
-            video.src = src;
-            video.oncanplaythrough = () => resolve();
-            video.onerror = () => resolve(); // Resolve even on error to not block
-            video.load();
-          } else {
-            const img = new Image();
-            img.src = src;
-            img.onload = () => resolve();
-            img.onerror = () => resolve(); // Resolve even on error to not block
-          }
+          const img = new Image();
+          img.src = src;
+          img.onload = () => resolve();
+          img.onerror = () => resolve(); // Resolve even on error to not block
         });
+      });
+
+      // Wait for Cloudinary video iframe to be ready (for home page)
+      const videoPromise = new Promise<void>((resolve) => {
+        if (typeof window !== "undefined" && window.location.pathname === "/") {
+          const checkVideo = () => {
+            const iframe = document.querySelector('iframe[src*="cloudinary.com"]');
+            if (iframe) {
+              // Give iframe time to load
+              setTimeout(() => resolve(), 500);
+            } else {
+              resolve();
+            }
+          };
+          setTimeout(checkVideo, 100);
+          setTimeout(() => resolve(), 2000);
+        } else {
+          resolve();
+        }
       });
 
       // Wait for all assets to load or timeout
       await Promise.race([
-        Promise.all(preloadPromises),
+        Promise.all([...preloadPromises, videoPromise]),
         new Promise((resolve) => setTimeout(resolve, 3000)), // Max 3 seconds
       ]);
 
