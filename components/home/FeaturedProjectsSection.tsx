@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import ScrollAnimation from "@/components/ui/scroll-animation";
+import StaggerAnimation from "@/components/ui/stagger-animation";
 
 interface Project {
   title: string;
@@ -29,30 +33,36 @@ export default function FeaturedProjectsSection({ projects }: FeaturedProjectsSe
       </div>
       
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="flex justify-between items-end mb-20">
-          <div>
-            <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Featured Work</div>
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight">
-              Recent
-              <br />
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
-                Projects
-              </span>
-            </h2>
+        <ScrollAnimation direction="up" delay={0.1}>
+          <div className="flex justify-between items-end mb-20">
+            <div>
+              <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Featured Work</div>
+              <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight">
+                Recent
+                <br />
+                <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
+                  Projects
+                </span>
+              </h2>
+            </div>
+            <Button 
+              variant="outline" 
+              className="hidden lg:flex border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white rounded-full px-8 py-6 font-bold hover:scale-105 transition-all duration-300"
+              asChild
+            >
+              <Link href="/projects">
+                View All
+                <ArrowRight className="ml-2" />
+              </Link>
+            </Button>
           </div>
-          <Button 
-            variant="outline" 
-            className="hidden lg:flex border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white rounded-full px-8 py-6 font-bold hover:scale-105 transition-all duration-300"
-            asChild
-          >
-            <Link href="/projects">
-              View All
-              <ArrowRight className="ml-2" />
-            </Link>
-          </Button>
-        </div>
+        </ScrollAnimation>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <StaggerAnimation
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          staggerDelay={0.15}
+          direction="up"
+        >
           {projects.map((project, index) => (
             <div
               key={index}
@@ -99,7 +109,7 @@ export default function FeaturedProjectsSection({ projects }: FeaturedProjectsSe
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 z-10"></div>
             </div>
           ))}
-        </div>
+        </StaggerAnimation>
       </div>
     </section>
   );

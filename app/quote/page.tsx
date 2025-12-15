@@ -40,16 +40,15 @@ type FormStatus = "idle" | "submitting" | "success" | "error";
 
 // Constants
 const PROJECT_TYPES = [
-  "Residential Construction",
-  "Commercial Construction",
-  "Renovations & Remodeling",
-  "Kitchen & Bathroom Remodeling",
-  "Roofing",
-  "Flooring",
-  "Electrical & Plumbing",
-  "Landscaping & Hardscaping",
-  "Foundation Work",
-  "Deck & Patio Construction",
+  "Balcony Restoration",
+  "Masonry Restoration",
+  "Caulking and Sealant Application",
+  "Architectural Coating / Painting",
+  "Underground Garage Structure Repairs",
+  "Roof Replacement & Repair",
+  "Stucco Installation & Repair",
+  "Siding Installation & Repair",
+  "Windows Installations",
   "Other",
 ] as const;
 

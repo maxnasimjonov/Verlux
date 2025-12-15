@@ -3,25 +3,33 @@
 import Image from "next/image";
 import { Linkedin, Twitter, Mail } from "lucide-react";
 import { teamMembers } from "@/lib/data/aboutData";
+import ScrollAnimation from "@/components/ui/scroll-animation";
+import StaggerAnimation from "@/components/ui/stagger-animation";
 
 export default function TeamSection() {
     return (
         <section className="py-24 bg-gray-50">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Our Team</div>
-                    <h2 className="text-4xl sm:text-5xl font-black mb-6 text-gray-900">
-                        Meet the
-                        <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent ml-3">
-                            Experts
-                        </span>
-                    </h2>
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                        The passionate individuals behind our success, dedicated to bringing your vision to life.
-                    </p>
-                </div>
+                <ScrollAnimation direction="up" delay={0.1}>
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Our Team</div>
+                        <h2 className="text-4xl sm:text-5xl font-black mb-6 text-gray-900">
+                            Meet the
+                            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent ml-3">
+                                Experts
+                            </span>
+                        </h2>
+                        <p className="text-lg text-gray-600 leading-relaxed">
+                            The passionate individuals behind our success, dedicated to bringing your vision to life.
+                        </p>
+                    </div>
+                </ScrollAnimation>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <StaggerAnimation
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                    staggerDelay={0.1}
+                    direction="up"
+                >
                     {teamMembers.map((member, index) => (
                         <div
                             key={index}
@@ -64,7 +72,7 @@ export default function TeamSection() {
                             </div>
                         </div>
                     ))}
-                </div>
+                </StaggerAnimation>
             </div>
         </section>
     );

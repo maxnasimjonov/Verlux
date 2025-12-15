@@ -9,12 +9,15 @@ const quickLinks = [
 ];
 
 const services = [
-  { href: "/services#residential", label: "Residential Construction" },
-  { href: "/services#commercial", label: "Commercial Construction" },
-  { href: "/services#renovations", label: "Renovations & Remodeling" },
-  { href: "/services#kitchen-bathroom", label: "Kitchen & Bathroom" },
-  { href: "/services#roofing", label: "Roofing" },
-  { href: "/services#landscaping", label: "Landscaping" },
+  { href: "/services#balcony", label: "Balcony Restoration" },
+  { href: "/services#masonry", label: "Masonry Restoration" },
+  { href: "/services#caulking-sealant", label: "Caulking and Sealant Application" },
+  { href: "/services#architectural-coating", label: "Architectural Coating / Painting" },
+  { href: "/services#underground-garage", label: "Underground Garage Structure Repairs" },
+  { href: "/services#roof-replacement", label: "Roof Replacement & Repair" },
+  { href: "/services#stucco", label: "Stucco Installation & Repair" },
+  { href: "/services#siding", label: "Siding Installation & Repair" },
+  { href: "/services#windows", label: "Windows Installations" },
 ];
 
 const legalLinks = [

@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Filter, MapPin, Calendar, Ruler, DollarSign, CheckCircle } from "lucide-react";
 import { allProjects, projectCategories, type Project } from "@/lib/data/projectsData";
+import ScrollAnimation from "@/components/ui/scroll-animation";
+import StaggerAnimation from "@/components/ui/stagger-animation";
 
 function ProjectsContent() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -33,22 +35,24 @@ function ProjectsContent() {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-lg">
-              <Filter className="w-4 h-4" />
-              <span className="text-sm font-bold tracking-wide">Our Portfolio</span>
+          <ScrollAnimation direction="up" delay={0.1}>
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-lg">
+                <Filter className="w-4 h-4" />
+                <span className="text-sm font-bold tracking-wide">Our Portfolio</span>
+              </div>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+                Featured
+                <br />
+                <span className="bg-gradient-to-r from-teal-100 via-cyan-100 to-teal-100 bg-clip-text text-transparent">
+                  Projects
+                </span>
+              </h1>
+              <p className="text-xl sm:text-2xl text-teal-50/90 max-w-2xl mx-auto leading-relaxed">
+                Explore our completed projects showcasing excellence in construction, renovation, and design across residential and commercial spaces.
+              </p>
             </div>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-              Featured
-              <br />
-              <span className="bg-gradient-to-r from-teal-100 via-cyan-100 to-teal-100 bg-clip-text text-transparent">
-                Projects
-              </span>
-            </h1>
-            <p className="text-xl sm:text-2xl text-teal-50/90 max-w-2xl mx-auto leading-relaxed">
-              Explore our completed projects showcasing excellence in construction, renovation, and design across residential and commercial spaces.
-            </p>
-          </div>
+          </ScrollAnimation>
         </div>
       </section>
 
@@ -82,7 +86,11 @@ function ProjectsContent() {
 
           {/* Projects Grid */}
           {filteredProjects.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <StaggerAnimation
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+              staggerDelay={0.1}
+              direction="up"
+            >
               {filteredProjects.map((project) => (
                 <div
                   key={project.id}
@@ -190,7 +198,7 @@ function ProjectsContent() {
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 pointer-events-none"></div>
                 </div>
               ))}
-            </div>
+            </StaggerAnimation>
           ) : (
             <div className="text-center py-20">
               <p className="text-xl text-gray-600 mb-4">No projects found in this category.</p>

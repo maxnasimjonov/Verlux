@@ -4,23 +4,31 @@ import { useState } from "react";
 import Image from "next/image";
 import {
   Building2,
+  Building,
   Hammer,
   Home,
-  Wrench,
-  Flower2,
   Layers,
+  Droplet,
+  Paintbrush,
+  Square,
+  Maximize,
 } from "lucide-react";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import type { Service } from "@/lib/data/homeData";
+import ScrollAnimation from "@/components/ui/scroll-animation";
+import StaggerAnimation from "@/components/ui/stagger-animation";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Home,
   Building2,
+  Building,
   Hammer,
-  Wrench,
   Layers,
-  Flower2,
+  Droplet,
+  Paintbrush,
+  Square,
+  Maximize,
 };
 
 interface ServicesSectionProps {
@@ -35,21 +43,27 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-teal-50 to-transparent"></div>
       
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="mb-20 max-w-2xl">
-          <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Our Services</div>
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-            What We
-            <br />
-            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
-              Build
-            </span>
-          </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Comprehensive construction solutions tailored to your unique needs and vision.
-          </p>
-        </div>
+        <ScrollAnimation direction="up" delay={0.1}>
+          <div className="mb-20 max-w-2xl">
+            <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Our Services</div>
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+              What We
+              <br />
+              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
+                Build
+              </span>
+            </h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Comprehensive construction solutions tailored to your unique needs and vision.
+            </p>
+          </div>
+        </ScrollAnimation>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerAnimation
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          staggerDelay={0.1}
+          direction="up"
+        >
           {services.map((service, index) => {
             const Icon = iconMap[service.icon];
             if (!Icon) return null;
@@ -110,7 +124,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
               </div>
             );
           })}
-        </div>
+        </StaggerAnimation>
       </div>
     </section>
   );

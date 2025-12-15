@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { companyStory } from "@/lib/data/aboutData";
+import ScrollAnimation from "@/components/ui/scroll-animation";
 
 export default function CompanyStory() {
     return (
@@ -9,7 +10,7 @@ export default function CompanyStory() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     {/* Image Side */}
-                    <div className="w-full lg:w-1/2 relative">
+                    <ScrollAnimation direction="right" delay={0.1} className="w-full lg:w-1/2 relative">
                         <div className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl">
                             <Image
                                 src={companyStory.image}
@@ -22,10 +23,10 @@ export default function CompanyStory() {
                         {/* Decorative elements */}
                         <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-teal-50 rounded-full -z-10 blur-3xl"></div>
                         <div className="absolute -top-10 -right-10 w-40 h-40 bg-cyan-50 rounded-full -z-10 blur-3xl"></div>
-                    </div>
+                    </ScrollAnimation>
 
                     {/* Content Side */}
-                    <div className="w-full lg:w-1/2">
+                    <ScrollAnimation direction="left" delay={0.2} className="w-full lg:w-1/2">
                         <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Our Story</div>
                         <h2 className="text-4xl sm:text-5xl font-black mb-6 leading-tight text-gray-900">
                             {companyStory.title}
@@ -50,7 +51,7 @@ export default function CompanyStory() {
                                 <p className="text-gray-600">{companyStory.vision}</p>
                             </div>
                         </div>
-                    </div>
+                    </ScrollAnimation>
                 </div>
             </div>
         </section>

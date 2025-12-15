@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { FileText, Search, Hammer, CheckCircle } from "lucide-react";
+import ScrollAnimation from "@/components/ui/scroll-animation";
+import StaggerAnimation from "@/components/ui/stagger-animation";
 
 const steps = [
   {
@@ -43,22 +45,28 @@ export default function OurProcessSection() {
     <section className="relative py-32 px-8 lg:px-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
-        <div className="text-center mb-20 max-w-3xl mx-auto">
-          <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Our Process</div>
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-            How We
-            <br />
-            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
-              Build Your Dreams
-            </span>
-          </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            From initial consultation to final handover, we follow a proven process that ensures quality, transparency, and your complete satisfaction.
-          </p>
-        </div>
+        <ScrollAnimation direction="up" delay={0.1}>
+          <div className="text-center mb-20 max-w-3xl mx-auto">
+            <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Our Process</div>
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+              How We
+              <br />
+              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
+                Build Your Dreams
+              </span>
+            </h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              From initial consultation to final handover, we follow a proven process that ensures quality, transparency, and your complete satisfaction.
+            </p>
+          </div>
+        </ScrollAnimation>
 
         {/* Process Steps */}
-        <div className="space-y-12 lg:space-y-16">
+        <StaggerAnimation
+          className="space-y-12 lg:space-y-16"
+          staggerDelay={0.15}
+          direction="up"
+        >
           {steps.map((step, index) => {
             const Icon = step.icon;
             const isEven = index % 2 === 0;
@@ -109,7 +117,7 @@ export default function OurProcessSection() {
               </div>
             );
           })}
-        </div>
+        </StaggerAnimation>
       </div>
     </section>
   );

@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { CheckCircle2, Shield, Award, Users, Clock, DollarSign } from "lucide-react";
+import ScrollAnimation from "@/components/ui/scroll-animation";
+import StaggerAnimation from "@/components/ui/stagger-animation";
 
 const features = [
   {
@@ -53,22 +55,28 @@ export default function WhyChooseUsSection() {
     <section className="relative py-32 px-8 lg:px-16 bg-white overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
-        <div className="text-center mb-20 max-w-3xl mx-auto">
-          <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Why Choose Us</div>
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-            Building Trust,
-            <br />
-            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
-              One Project at a Time
-            </span>
-          </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Experience the difference that comes from working with a construction company that truly cares about your vision and your investment.
-          </p>
-        </div>
+        <ScrollAnimation direction="up" delay={0.1}>
+          <div className="text-center mb-20 max-w-3xl mx-auto">
+            <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Why Choose Us</div>
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+              Building Trust,
+              <br />
+              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
+                One Project at a Time
+              </span>
+            </h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Experience the difference that comes from working with a construction company that truly cares about your vision and your investment.
+            </p>
+          </div>
+        </ScrollAnimation>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerAnimation
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          staggerDelay={0.1}
+          direction="up"
+        >
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
@@ -105,7 +113,7 @@ export default function WhyChooseUsSection() {
               </div>
             );
           })}
-        </div>
+        </StaggerAnimation>
       </div>
     </section>
   );
