@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Construction, Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { services as servicesData } from "@/lib/data/homeData";
 
 const quickLinks = [
   { href: "/", label: "Home" },
@@ -8,17 +9,10 @@ const quickLinks = [
   { href: "/about", label: "About Us" },
 ];
 
-const services = [
-  { href: "/services#balcony", label: "Balcony Restoration" },
-  { href: "/services#masonry", label: "Masonry Restoration" },
-  { href: "/services#caulking-sealant", label: "Caulking and Sealant Application" },
-  { href: "/services#architectural-coating", label: "Architectural Coating / Painting" },
-  { href: "/services#underground-garage", label: "Underground Garage Structure Repairs" },
-  { href: "/services#roof-replacement", label: "Roof Replacement & Repair" },
-  { href: "/services#stucco", label: "Stucco Installation & Repair" },
-  { href: "/services#siding", label: "Siding Installation & Repair" },
-  { href: "/services#windows", label: "Windows Installations" },
-];
+const services = servicesData.map((service) => ({
+  href: `/services/${service.slug}`,
+  label: service.fullTitle,
+}));
 
 const legalLinks = [
   { href: "/privacy", label: "Privacy Policy" },

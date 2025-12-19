@@ -68,8 +68,9 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
             const Icon = iconMap[service.icon];
             if (!Icon) return null;
             return (
-              <div
+              <Link
                 key={index}
+                href={`/services/${service.slug}`}
                 onMouseEnter={() => setHoveredService(index)}
                 onMouseLeave={() => setHoveredService(null)}
                 className={`group relative overflow-hidden bg-white border-2 border-gray-200 min-h-[350px] flex flex-col justify-between hover:border-teal-500 transition-all duration-500 cursor-pointer ${service.angle} hover:rotate-0 hover:scale-105 hover:shadow-2xl ${
@@ -109,19 +110,16 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                       <h4 className="text-xl font-bold text-gray-200 mb-4">{service.subtitle}</h4>
                       <p className="text-gray-200 leading-relaxed mb-8">{service.description}</p>
                     </div>
-                    <Link 
-                      href="/services" 
-                      className="inline-flex items-center text-white font-bold transition-colors group/link hover:text-teal-300"
-                    >
+                    <div className="inline-flex items-center text-white font-bold transition-colors group/link hover:text-teal-300">
                       Learn More
                       <ChevronRight className="ml-2 w-5 h-5 group-hover/link:translate-x-2 transition-transform" />
-                    </Link>
+                    </div>
                   </div>
                 </div>
 
                 {/* Shine effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 z-[1]"></div>
-              </div>
+              </Link>
             );
           })}
         </StaggerAnimation>

@@ -103,7 +103,7 @@ export default function Navbar() {
                   {services.map((service, index) => (
                     <Link
                       key={index}
-                      href={`/services#${service.title.toLowerCase().replace(/\s+/g, "-")}`}
+                      href={`/services/${service.slug}`}
                       className="block px-4 py-3 text-sm text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors"
                     >
                       <div className="font-semibold">{service.title}</div>
@@ -199,7 +199,7 @@ export default function Navbar() {
                   {services.map((service, index) => (
                     <Link
                       key={index}
-                      href={`/services#${service.title.toLowerCase().replace(/\s+/g, "-")}`}
+                      href={`/services/${service.slug}`}
                       onClick={() => {
                         setIsOpen(false);
                         setServicesMobileOpen(false);
