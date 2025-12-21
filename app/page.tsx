@@ -1,7 +1,6 @@
 import HeroSection from "@/components/home/HeroSection";
 import StatsSection from "@/components/home/StatsSection";
 import ServicesSection from "@/components/home/ServicesSection";
-import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
 import OurProcessSection from "@/components/home/OurProcessSection";
 import FeaturedProjectsSection from "@/components/home/FeaturedProjectsSection";
 import QualityExcellenceSection from "@/components/home/QualityExcellenceSection";
@@ -14,7 +13,6 @@ export default function Home() {
       <HeroSection />
       <ServicesSection services={services} />
       <StatsSection stats={stats} />
-      <WhyChooseUsSection />
       <OurProcessSection />
       <FeaturedProjectsSection projects={featuredProjects} />
       <QualityExcellenceSection />

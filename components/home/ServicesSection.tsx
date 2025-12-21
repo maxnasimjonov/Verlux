@@ -13,11 +13,12 @@ import {
   Square,
   Maximize,
 } from "lucide-react";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import type { Service } from "@/lib/data/homeData";
 import ScrollAnimation from "@/components/ui/scroll-animation";
 import StaggerAnimation from "@/components/ui/stagger-animation";
+import { Button } from "@/components/ui/button";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Home,
@@ -37,6 +38,9 @@ interface ServicesSectionProps {
 
 export default function ServicesSection({ services }: ServicesSectionProps) {
   const [hoveredService, setHoveredService] = useState<number | null>(null);
+  
+  // Show only the first 3 services on home page
+  const featuredServices = services.slice(0, 3);
 
   return (
     <section className="relative pt-32 pb-8 px-8 lg:px-16 bg-white overflow-hidden">
@@ -44,18 +48,31 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
       
       <div className="container mx-auto max-w-7xl relative z-10">
         <ScrollAnimation direction="up" delay={0.1}>
-          <div className="mb-20 max-w-2xl">
-            <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Our Services</div>
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-              What We
-              <br />
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
-                Build
-              </span>
-            </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Comprehensive construction solutions tailored to your unique needs and vision.
-            </p>
+          <div className="mb-20 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+            <div className="max-w-2xl">
+              <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Our Services</div>
+              <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+                What We
+                <br />
+                <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
+                  Build
+                </span>
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Comprehensive construction solutions tailored to your unique needs and vision.
+              </p>
+            </div>
+            <div className="flex-shrink-0">
+              <Button
+                asChild
+                className="bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white rounded-full px-8 py-6 font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+              >
+                <Link href="/services">
+                  View All Services
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </ScrollAnimation>
         
@@ -64,7 +81,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
           staggerDelay={0.1}
           direction="up"
         >
-          {services.map((service, index) => {
+          {featuredServices.map((service, index) => {
             const Icon = iconMap[service.icon];
             if (!Icon) return null;
             return (
