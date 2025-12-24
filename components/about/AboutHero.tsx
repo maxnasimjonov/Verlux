@@ -8,7 +8,7 @@ export default function AboutHero() {
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop"
+                    src="/assests/construction-site-danger-sign-barrier.JPG"
                     alt="Construction site at sunset"
                     fill
                     className="object-cover"

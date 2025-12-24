@@ -8,12 +8,12 @@ const qualityFeatures = [
   {
     title: "Premium Materials",
     description: "We source only the finest materials from trusted suppliers, ensuring durability and longevity in every project.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070&auto=format&fit=crop",
+    image: "/assests/masonry-bricklaying-worker-wall-ties.JPG",
   },
   {
     title: "Skilled Craftsmanship",
     description: "Our master craftsmen bring years of experience and attention to detail to every aspect of construction.",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop",
+    image: "/assests/exterior-brick-wall-mortar-repair.JPG",
   },
   {
     title: "Modern Technology",
@@ -84,7 +84,7 @@ export default function QualityExcellenceSection() {
           {/* Image */}
           <div className="relative h-96 lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+              src="/assests/building-exterior-textured-brick-scaffolding.JPG"
               alt="Quality construction work"
               fill
               className="object-cover"

@@ -11,7 +11,7 @@ const steps = [
     title: "Consultation & Planning",
     description: "We start by understanding your vision, budget, and timeline. Our team conducts a thorough site assessment and creates a detailed project plan tailored to your needs.",
     icon: FileText,
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
+    image: "/assests/wall-measurement-construction-tape.JPG",
     gradient: "from-blue-500 to-cyan-500",
   },
   {
@@ -19,7 +19,7 @@ const steps = [
     title: "Design & Approval",
     description: "Our architects and designers work closely with you to refine the design, ensuring it meets all requirements and regulations before obtaining necessary permits.",
     icon: Search,
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+    image: "/assests/exterior-wall-brick-patterning-scaffolding.JPG",
     gradient: "from-purple-500 to-pink-500",
   },
   {
@@ -35,7 +35,7 @@ const steps = [
     title: "Completion & Handover",
     description: "We conduct final inspections, address any concerns, and ensure everything meets our high standards before handing over your completed project with full documentation.",
     icon: CheckCircle,
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+    image: "/assests/apartment-building-scaffolding-construction.JPG",
     gradient: "from-green-500 to-emerald-500",
   },
 ];

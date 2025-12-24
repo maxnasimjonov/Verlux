@@ -37,9 +37,9 @@ export default function FirstVisitLoader({ children, minimumDelay = 800 }: First
       // Base critical images that appear on most pages
       let criticalImages: string[] = [
         // About page hero
-        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop",
+        "/assests/construction-site-danger-sign-barrier.JPG",
         // Company story image
-        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop",
+        "/assests/masonry-restoration-brick-repointing-01.JPG",
         // Team member images
         "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop",
         "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop",
@@ -51,25 +51,25 @@ export default function FirstVisitLoader({ children, minimumDelay = 800 }: First
       if (pathname === "/") {
         // Home page service images
         criticalImages.push(
-          "https://www.ctvnews.ca/resizer/v2/FCO6HRFZCK5EYYRFF7A7ALFANY.jpg?smart=true&auth=b05bc2fa21704d0e0e6db662765107d3f331ce261a1875a62dbaa57a4dd75a54&width=1400&height=787",
-          "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
-          "https://www.bankrate.com/brp/2025/03/17162426/Whats-the-difference-between-a-home-renovation-and-a-remodel.jpeg?auto=webp&optimize=high&crop=16:9",
-          "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?q=80&w=2070&auto=format&fit=crop",
-          "https://primeroofingfl.com/wp-content/uploads/2025/05/roofing-contractor-at-work.jpg",
-          "https://captainhandy.ca/wp-content/uploads/2024/02/Captain_Handy_18-watermarked-1024x683.webp",
+          "/assests/apartment-building-scaffolding-construction.JPG",
+          "/assests/building-exterior-textured-brick-scaffolding.JPG",
+          "/assests/masonry-brick-wall-construction-01.JPG",
+          "/assests/interior-wall-black-stripe-painted.JPG",
+          "/assests/rooftop-davit-system-maintenance.JPG",
+          "/assests/rooftop-hvac-city-skyline-view.JPG",
           // Featured projects
-          "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
-          "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2074&auto=format&fit=crop"
+          "/assests/apartment-building-scaffolding-construction.JPG",
+          "/assests/rooftop-davit-equipment-landscape-view.JPG"
         );
       } else if (pathname === "/projects") {
         // Projects page - preload first few project images
         criticalImages.push(
-          "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
-          "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
-          "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?q=80&w=2070&auto=format&fit=crop",
-          "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2074&auto=format&fit=crop",
-          "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop",
-          "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop"
+          "/assests/apartment-building-scaffolding-construction.JPG",
+          "/assests/building-exterior-textured-brick-scaffolding.JPG",
+          "/assests/interior-wall-black-stripe-painted.JPG",
+          "/assests/rooftop-davit-equipment-landscape-view.JPG",
+          "/assests/masonry-restoration-brick-repointing-02.JPG",
+          "/assests/building-facade-white-blue-wall.JPG"
         );
       }
 

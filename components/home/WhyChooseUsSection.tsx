@@ -10,7 +10,7 @@ const features = [
     icon: Shield,
     title: "Licensed & Insured",
     description: "Fully licensed and insured for your peace of mind. We carry comprehensive coverage to protect your investment.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+    image: "/assests/exterior-wall-brick-patterning-scaffolding.JPG",
     gradient: "from-blue-500 to-cyan-500",
   },
   {
@@ -24,7 +24,7 @@ const features = [
     icon: Users,
     title: "Expert Team",
     description: "Our skilled craftsmen bring decades of combined experience to every project, ensuring superior results.",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop",
+    image: "/assests/bricklaying-worker-scaffolding-suspended.JPG",
     gradient: "from-purple-500 to-pink-500",
   },
   {
@@ -38,14 +38,14 @@ const features = [
     icon: DollarSign,
     title: "Fair Pricing",
     description: "Transparent, competitive pricing with no hidden fees. We provide detailed quotes and work within your budget.",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2011&auto=format&fit=crop",
+    image: "/assests/construction-site-danger-sign-barrier.JPG",
     gradient: "from-teal-500 to-cyan-500",
   },
   {
     icon: CheckCircle2,
     title: "Satisfaction Guaranteed",
     description: "We stand behind our work with comprehensive warranties and a commitment to your complete satisfaction.",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+    image: "/assests/apartment-building-scaffolding-construction.JPG",
     gradient: "from-orange-500 to-red-500",
   },
 ];

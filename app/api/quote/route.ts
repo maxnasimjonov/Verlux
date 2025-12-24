@@ -195,16 +195,16 @@ export async function POST(request: NextRequest) {
     if (!emailSent) {
       // Log the quote request for manual processing
       console.log("Quote request received (email not sent - configure RESEND_API_KEY):", {
-        name: body.name,
-        email: body.email,
-        phone: body.phone,
-        projectType: body.projectType,
-        projectDetails: body.projectDetails,
-        timeline: body.timeline || "Not specified",
-        budget: body.budget || "Not specified",
-        timestamp: new Date().toISOString(),
+      name: body.name,
+      email: body.email,
+      phone: body.phone,
+      projectType: body.projectType,
+      projectDetails: body.projectDetails,
+      timeline: body.timeline || "Not specified",
+      budget: body.budget || "Not specified",
+      timestamp: new Date().toISOString(),
         recipientEmail,
-      });
+    });
     }
 
     return NextResponse.json(

@@ -35,7 +35,7 @@ export const companyStory = {
     ],
     mission: "To deliver superior construction solutions that exceed expectations, foster innovation, and build lasting value for our clients and communities.",
     vision: "To be the most trusted and forward-thinking construction partner, setting new standards for quality and sustainability in the industry.",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop"
+    image: "/assests/masonry-restoration-brick-repointing-01.JPG"
 };
 
 export const stats: Stat[] = [

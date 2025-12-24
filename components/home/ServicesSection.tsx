@@ -50,17 +50,17 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
         <ScrollAnimation direction="up" delay={0.1}>
           <div className="mb-20 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <div className="max-w-2xl">
-              <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Our Services</div>
-              <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-                What We
-                <br />
-                <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
-                  Build
-                </span>
-              </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Comprehensive construction solutions tailored to your unique needs and vision.
-              </p>
+            <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Our Services</div>
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+              What We
+              <br />
+              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
+                Build
+              </span>
+            </h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Comprehensive construction solutions tailored to your unique needs and vision.
+            </p>
             </div>
             <div className="flex-shrink-0">
               <Button
