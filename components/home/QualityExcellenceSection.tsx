@@ -37,11 +37,11 @@ export default function QualityExcellenceSection() {
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
-          <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Quality & Excellence</div>
+          <div className="text-sm uppercase tracking-[0.2em] text-gray-600 font-bold mb-4">Quality & Excellence</div>
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
             Uncompromising
             <br />
-            <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
+            <span className="text-gray-600">
               Quality Standards
             </span>
           </h2>
@@ -55,7 +55,7 @@ export default function QualityExcellenceSection() {
           {qualityFeatures.map((feature, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden bg-white border-2 border-gray-200 rounded-3xl hover:border-teal-500 transition-all duration-500 hover:shadow-2xl"
+              className="group relative overflow-hidden bg-white border-2 border-gray-200 rounded-3xl hover:border-gray-600 transition-all duration-500 hover:shadow-2xl"
             >
               <div className="relative h-64 overflow-hidden">
                 <Image
@@ -68,7 +68,7 @@ export default function QualityExcellenceSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
               </div>
               <div className="p-8">
-                <h3 className="text-2xl font-black text-gray-900 mb-3 group-hover:text-teal-600 transition-colors">
+                <h3 className="text-2xl font-black text-gray-900 mb-3 group-hover:text-gray-600 transition-colors">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -90,7 +90,7 @@ export default function QualityExcellenceSection() {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-teal-600/20 to-cyan-500/20"></div>
+            <div className="absolute inset-0 bg-gray-600/20"></div>
           </div>
 
           {/* Guarantees List */}
@@ -106,12 +106,12 @@ export default function QualityExcellenceSection() {
               {guarantees.map((guarantee, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 hover:bg-teal-50 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 hover:bg-gray-50 transition-colors group"
                 >
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center">
                     <Check className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-lg font-semibold text-gray-900 group-hover:text-teal-600 transition-colors">
+                  <span className="text-lg font-semibold text-gray-900 group-hover:text-gray-600 transition-colors">
                     {guarantee}
                   </span>
                 </div>
@@ -120,7 +120,7 @@ export default function QualityExcellenceSection() {
 
             <Button
               size="lg"
-              className="group text-lg px-8 py-6 bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white border-0 rounded-full font-bold shadow-2xl hover:shadow-teal-500/50 hover:scale-105 transition-all duration-300"
+              className="group text-lg px-8 py-6 bg-gray-600 hover:bg-gray-700 text-white border-0 rounded-full font-bold shadow-2xl hover:shadow-gray-600/50 hover:scale-105 transition-all duration-300"
             >
               Learn More About Our Quality
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -36,10 +36,10 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6 group">
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-teal-600 to-cyan-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="w-12 h-12 rounded-lg bg-gray-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <Construction className="w-7 h-7 text-white" />
               </div>
-              <span className="text-2xl font-black text-gray-900 group-hover:text-teal-600 transition-colors">
+              <span className="text-2xl font-black text-gray-900 group-hover:text-gray-600 transition-colors">
                 VERLUX
               </span>
             </Link>
@@ -50,19 +50,19 @@ export default function Footer() {
             {/* Contact Details */}
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                <a href="tel:+14374520850" className="text-gray-700 hover:text-teal-600 transition-colors">
+                <Phone className="w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0" />
+                <a href="tel:+14374520850" className="text-gray-700 hover:text-gray-600 transition-colors">
                   +1 (437) 452-0850
                 </a>
               </div>
               <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                <a href="mailto:info@verlux.com" className="text-gray-700 hover:text-teal-600 transition-colors">
+                <Mail className="w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0" />
+                <a href="mailto:info@verlux.com" className="text-gray-700 hover:text-gray-600 transition-colors">
                   info@verlux.com
                 </a>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                <MapPin className="w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-600">8 McKee Ave, North York, ON M2N 7E5</span>
               </div>
             </div>
@@ -76,7 +76,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-600 hover:text-teal-600 transition-colors inline-block"
+                    className="text-gray-600 hover:text-gray-600 transition-colors inline-block"
                   >
                     {link.label}
                   </Link>
@@ -89,7 +89,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-gray-500 hover:text-teal-600 transition-colors text-sm"
+                      className="text-gray-500 hover:text-gray-600 transition-colors text-sm"
                     >
                       {link.label}
                     </Link>
@@ -107,7 +107,7 @@ export default function Footer() {
                 <li key={service.href}>
                   <Link
                     href={service.href}
-                    className="text-gray-600 hover:text-teal-600 transition-colors inline-block"
+                    className="text-gray-600 hover:text-gray-600 transition-colors inline-block"
                   >
                     {service.label}
                   </Link>
@@ -133,7 +133,7 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-gray-200 hover:bg-teal-600 flex items-center justify-center transition-colors group"
+                    className="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-600 flex items-center justify-center transition-colors group"
                     aria-label={social.label}
                   >
                     <Icon className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors" />

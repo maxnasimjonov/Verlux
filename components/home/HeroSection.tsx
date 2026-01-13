@@ -37,17 +37,12 @@ export default function HeroSection() {
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-teal-600 to-cyan-500 text-white mb-8 shadow-lg shadow-teal-500/30">
-            <Sparkles className="w-5 h-5" />
-            <span className="text-sm font-bold tracking-wider uppercase">Award-Winning Excellence</span>
-          </div>
 
           {/* Main Heading */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight text-white">
             Building Your Dreams,
             <br />
-            <span className="bg-gradient-to-r from-teal-400 via-cyan-300 to-teal-400 bg-clip-text text-transparent">
+            <span >
               One Brick at a Time
             </span>
           </h1>
@@ -61,7 +56,7 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="group cursor-pointer text-base sm:text-lg px-6 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-7 bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white border-0 rounded-full font-bold shadow-2xl hover:shadow-teal-500/50 hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+              className="group cursor-pointer text-base sm:text-lg px-6 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-7 bg-gray-600 hover:bg-gray-700 text-white border-0 rounded-full font-bold shadow-2xl hover:shadow-gray-600/50 hover:scale-105 transition-all duration-300 w-full sm:w-auto"
               asChild
             >
               <Link href="/quote">

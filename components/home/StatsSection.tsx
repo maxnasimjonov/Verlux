@@ -22,7 +22,7 @@ export default function StatsSection({ stats }: StatsSectionProps) {
                 key={index} 
                 className="group text-center transition-all duration-300"
               >
-                <div className="text-4xl lg:text-5xl font-black text-gray-900 mb-2 group-hover:text-teal-600 transition-colors">
+                <div className="text-4xl lg:text-5xl font-black text-gray-900 mb-2 group-hover:text-gray-600 transition-colors">
                   {stat.value}
                 </div>
                 <div className="text-sm lg:text-base text-gray-600 uppercase tracking-wider font-semibold">

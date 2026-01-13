@@ -28,7 +28,7 @@ const steps = [
     description: "With your approval, our skilled team begins construction. We maintain open communication, provide regular updates, and ensure quality at every stage.",
     icon: Hammer,
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop",
-    gradient: "from-orange-500 to-red-500",
+    gradient: "from-gray-700 to-red-500",
   },
   {
     number: "04",
@@ -47,13 +47,9 @@ export default function OurProcessSection() {
         {/* Header */}
         <ScrollAnimation direction="up" delay={0.1}>
           <div className="text-center mb-12 lg:mb-16 max-w-3xl mx-auto">
-            <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Our Process</div>
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-              How We
-              <br />
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
-                Build Your Dreams
-              </span>
+            <div className="text-sm uppercase tracking-[0.2em] text-gray-600 font-bold mb-4">Our Process</div>
+            <h2 className="text-6xl sm:text-6xl lg:text-6xl font-black mb-6 leading-tight">
+              How We Build Your Dreams
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
               From initial consultation to final handover, we follow a proven process that ensures quality, transparency, and your complete satisfaction.
@@ -81,7 +77,7 @@ export default function OurProcessSection() {
                     {/* Timeline node connector */}
                     <div className="hidden lg:flex flex-col items-center mb-8 flex-shrink-0">
                       {/* Timeline node */}
-                      <div className={`relative w-16 h-16 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-xl border-4 border-white z-20 group-hover:scale-125 group-hover:shadow-2xl transition-all duration-300 ring-4 ring-white/50`}>
+                      <div className="relative w-16 h-16 rounded-full bg-gray-600 flex items-center justify-center shadow-xl border-4 border-white z-20 group-hover:scale-125 group-hover:shadow-2xl transition-all duration-300 ring-4 ring-white/50">
                         <Icon className="w-7 h-7 text-white" />
                       </div>
                     </div>
@@ -90,7 +86,7 @@ export default function OurProcessSection() {
                     <div className="relative bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] transition-all duration-500 hover:-translate-y-1 border border-gray-100 flex flex-col flex-1">
                       {/* Image - Fixed height */}
                       <div className="relative h-56 flex-shrink-0 overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 via-blue-500/5 to-purple-500/10 blur-2xl opacity-60 -z-10 transform scale-110 group-hover:scale-125 transition-transform duration-700"></div>
+                        <div className="absolute inset-0 bg-gray-600/10 blur-2xl opacity-60 -z-10 transform scale-110 group-hover:scale-125 transition-transform duration-700"></div>
                         <Image
                           src={step.image}
                           alt={step.title}
@@ -101,14 +97,14 @@ export default function OurProcessSection() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0"></div>
                         
                         {/* Step Number */}
-                        <div className={`absolute bottom-4 left-4 w-12 h-12 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg backdrop-blur-sm`}>
+                        <div className="absolute bottom-4 left-4 w-12 h-12 rounded-full bg-gray-600 flex items-center justify-center shadow-lg backdrop-blur-sm">
                           <span className="text-sm font-black text-white">{step.number}</span>
                         </div>
                       </div>
 
                       {/* Content - Flexible, pushes indicator to bottom */}
                       <div className="p-6 flex flex-col flex-1 min-h-0">
-                        <h3 className="text-xl xl:text-2xl font-black text-gray-900 mb-3 group-hover:text-teal-600 transition-colors duration-300 leading-tight">
+                        <h3 className="text-xl xl:text-2xl font-black text-gray-900 mb-3 group-hover:text-gray-600 transition-colors duration-300 leading-tight">
                           {step.title}
                         </h3>
                         
@@ -117,7 +113,7 @@ export default function OurProcessSection() {
                         </p>
                         
                         {/* Step indicator - Always at bottom */}
-                        <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r ${step.gradient} text-white text-xs font-semibold shadow-sm w-fit mt-auto`}>
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-600 text-white text-xs font-semibold shadow-sm w-fit mt-auto">
                           <span>Step {index + 1}</span>
                         </div>
                       </div>

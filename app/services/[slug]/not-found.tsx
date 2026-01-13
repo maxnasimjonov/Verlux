@@ -14,7 +14,7 @@ export default function ServiceNotFound() {
         <div className="flex flex-wrap justify-center gap-4">
           <Button
             asChild
-            className="bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white rounded-full px-8 py-6 font-bold"
+            className="bg-gray-600 hover:bg-gray-700 text-white rounded-full px-8 py-6 font-bold"
           >
             <Link href="/services">
               <ArrowLeft className="mr-2 w-5 h-5" />

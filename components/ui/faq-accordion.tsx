@@ -24,7 +24,7 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
       {items.map((faq, index) => (
         <div
           key={index}
-          className="border-2 border-gray-200 rounded-lg bg-white hover:border-teal-500 transition-all duration-300 overflow-hidden"
+          className="border-2 border-gray-200 rounded-lg bg-white hover:border-gray-600 transition-all duration-300 overflow-hidden"
         >
           <button
             onClick={() => toggleItem(index)}
@@ -34,7 +34,7 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
               {faq.question}
             </h3>
             <ChevronDown
-              className={`w-5 h-5 text-teal-600 flex-shrink-0 transition-transform duration-300 ${
+              className={`w-5 h-5 text-gray-600 flex-shrink-0 transition-transform duration-300 ${
                 openIndex === index ? "rotate-180" : ""
               }`}
             />

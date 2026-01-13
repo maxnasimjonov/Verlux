@@ -20,14 +20,14 @@ export default function AboutHero() {
             {/* Content */}
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-24 sm:mt-20">
                 <div className="max-w-3xl">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-500/20 border border-teal-500/30 text-teal-300 mb-6 backdrop-blur-sm">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-600/20 border border-gray-600/30 text-gray-500 mb-6 backdrop-blur-sm">
                         <span className="text-sm font-bold tracking-wider uppercase">About Verlux</span>
                     </div>
 
                     <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight text-white">
                         Building More Than Just
                         <br />
-                        <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">
+                        <span className="text-gray-600">
                             Structures
                         </span>
                     </h1>

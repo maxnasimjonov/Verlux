@@ -44,19 +44,15 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
 
   return (
     <section className="relative pt-32 pb-8 px-8 lg:px-16 bg-white overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-teal-50 to-transparent"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50/50"></div>
       
       <div className="container mx-auto max-w-7xl relative z-10">
         <ScrollAnimation direction="up" delay={0.1}>
           <div className="mb-20 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <div className="max-w-2xl">
-            <div className="text-sm uppercase tracking-[0.2em] text-teal-600 font-bold mb-4">Our Services</div>
+            <div className="text-md uppercase tracking-[0.2em] text-gray-600 font-bold mb-4">Our Services</div>
             <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-              What We
-              <br />
-              <span className="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">
-                Build
-              </span>
+              What We Build
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
               Comprehensive construction solutions tailored to your unique needs and vision.
@@ -65,7 +61,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
             <div className="flex-shrink-0">
               <Button
                 asChild
-                className="bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white rounded-full px-8 py-6 font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className="bg-gray-600 hover:bg-gray-700 text-white rounded-full px-8 py-6 font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 <Link href="/services">
                   View All Services
@@ -90,7 +86,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                 href={`/services/${service.slug}`}
                 onMouseEnter={() => setHoveredService(index)}
                 onMouseLeave={() => setHoveredService(null)}
-                className={`group relative overflow-hidden bg-white border-2 border-gray-200 min-h-[350px] flex flex-col justify-between hover:border-teal-500 transition-all duration-500 cursor-pointer ${service.angle} hover:rotate-0 hover:scale-105 hover:shadow-2xl ${
+                className={`group relative overflow-hidden bg-white border-2 border-gray-200 min-h-[350px] flex flex-col justify-between hover:border-gray-600 transition-all duration-500 cursor-pointer hover:scale-105 hover:shadow-2xl ${
                   hoveredService === index ? 'z-20' : ''
                 }`}
               >
@@ -107,7 +103,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                 </div>
                 
                 {/* Gradient overlay on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-[1]`}></div>
+                <div className="absolute inset-0 bg-gray-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-[1]"></div>
                 
                 {/* Content - Title always visible, rest on hover */}
                 <div className="relative z-10 flex flex-col justify-between h-full p-8">
@@ -120,14 +116,14 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
 
                   {/* Additional info - Shows on hover */}
                   <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                    <div className={`w-15 h-15 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg`}>
+                    <div className="w-15 h-15 rounded-2xl bg-gray-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg">
                       <Icon className="w-10 h-10 text-white" />
                     </div>
                     <div className="mb-4">
                       <h4 className="text-xl font-bold text-gray-200 mb-4">{service.subtitle}</h4>
                       <p className="text-gray-200 leading-relaxed mb-8">{service.description}</p>
                     </div>
-                    <div className="inline-flex items-center text-white font-bold transition-colors group/link hover:text-teal-300">
+                    <div className="inline-flex items-center text-white font-bold transition-colors group/link hover:text-gray-500">
                       Learn More
                       <ChevronRight className="ml-2 w-5 h-5 group-hover/link:translate-x-2 transition-transform" />
                     </div>
