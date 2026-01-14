@@ -62,7 +62,7 @@ export const services: Service[] = [
     detailedDescription: "Our comprehensive balcony restoration services address structural integrity, safety compliance, and aesthetic enhancement. We specialize in repairing concrete spalling, reinforcing structural elements, waterproofing, and restoring railings to meet current building codes.",
     gradient: "from-emerald-500 via-teal-500 to-cyan-500",
     angle: "rotate-3",
-    image: "/assests/apartment-building-scaffolding-construction.JPG",
+    image: "/gallery/balcony/balcony-3.jpg",
     features: [
       "Structural assessment and engineering reports",
       "Concrete repair and restoration",
@@ -123,7 +123,7 @@ export const services: Service[] = [
     detailedDescription: "We provide expert masonry restoration services for brick, stone, and concrete structures. Our team specializes in tuckpointing, brick replacement, stone repair, and comprehensive masonry restoration that preserves historical integrity while ensuring structural stability.",
     gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
     angle: "-rotate-2",
-    image: "/assests/masonry-restoration-brick-repointing-01.JPG",
+    image: "/gallery/masonry/masonry-1.jpg",
     features: [
       "Tuckpointing and repointing",
       "Brick and stone replacement",
@@ -151,7 +151,7 @@ export const services: Service[] = [
     detailedDescription: "Proper caulking and sealant application is essential for building protection. We use premium materials and expert techniques to seal joints, prevent water infiltration, improve energy efficiency, and extend the life of your building envelope.",
     gradient: "from-orange-500 via-red-500 to-rose-500",
     angle: "rotate-2",
-    image: "/assests/interior-wall-black-stripe-painted.JPG",
+    image: "/gallery/caulking/caulking-3.jpg",
     features: [
       "Joint preparation and cleaning",
       "Premium sealant selection",
@@ -179,7 +179,7 @@ export const services: Service[] = [
     detailedDescription: "Our architectural coating and painting services combine aesthetic enhancement with protective functionality. We use high-quality coatings designed to withstand harsh weather conditions, resist fading, and provide long-lasting protection for your building's exterior surfaces.",
     gradient: "from-amber-500 via-yellow-500 to-lime-500",
     angle: "-rotate-1",
-    image: "/assests/exterior-wall-textured-paint-renovation.JPG",
+    image: "/gallery/coating/coating-2.jpg",
     features: [
       "Surface preparation and priming",
       "Premium paint and coating selection",
@@ -207,7 +207,7 @@ export const services: Service[] = [
     detailedDescription: "Underground parking structures require specialized expertise for repair and maintenance. We provide comprehensive structural repairs including concrete restoration, waterproofing, expansion joint repair, and reinforcement to ensure safety and longevity of your parking facility.",
     gradient: "from-blue-500 via-indigo-500 to-purple-500",
     angle: "rotate-1",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+    image: "/gallery/garage/garage-4.jpg",
     features: [
       "Structural assessment and engineering",
       "Concrete repair and restoration",
@@ -235,7 +235,7 @@ export const services: Service[] = [
     detailedDescription: "Our roofing services cover everything from minor repairs to complete roof replacement. We work with all roofing materials and provide expert installation, repair, and maintenance services to protect your building from the elements.",
     gradient: "from-green-500 via-emerald-500 to-teal-500",
     angle: "-rotate-2",
-    image: "/assests/rooftop-davit-system-maintenance.JPG",
+    image: "/gallery/roof/roof-1.jpg",
     features: [
       "Complete roof replacement",
       "Leak detection and repair",
@@ -263,7 +263,7 @@ export const services: Service[] = [
     detailedDescription: "Stucco provides excellent durability and aesthetic appeal for building exteriors. Our expert team handles both new stucco installation and comprehensive repair services, ensuring proper application techniques and long-lasting results.",
     gradient: "from-rose-500 via-pink-500 to-fuchsia-500",
     angle: "rotate-2",
-    image: "/assests/masonry-restoration-brick-repointing-01.JPG",
+    image: "/gallery/stucco/stucco-1.jpg",
     features: [
       "New stucco installation",
       "Crack repair and patching",
@@ -291,7 +291,7 @@ export const services: Service[] = [
     detailedDescription: "Quality siding protects your building while enhancing its appearance. We offer professional installation and repair services for all types of siding materials, ensuring proper installation techniques and weather protection.",
     gradient: "from-slate-500 via-gray-500 to-zinc-500",
     angle: "-rotate-1",
-    image: "/assests/apartment-building-scaffolding-construction.JPG",
+    image: "/gallery/siding/siding-7.jpg",
     features: [
       "All siding materials",
       "Professional installation",
@@ -319,7 +319,7 @@ export const services: Service[] = [
     detailedDescription: "Energy-efficient windows reduce heating and cooling costs while improving comfort. Our professional window installation services ensure proper fitting, weatherproofing, and energy efficiency for your building.",
     gradient: "from-cyan-500 via-blue-500 to-indigo-500",
     angle: "rotate-1",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
+    image: "/gallery/windows/windows-1.jpg",
     features: [
       "Energy-efficient windows",
       "Professional installation",

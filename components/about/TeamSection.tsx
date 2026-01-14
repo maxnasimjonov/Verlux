@@ -12,10 +12,10 @@ export default function TeamSection() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <ScrollAnimation direction="up" delay={0.1}>
                     <div className="text-center max-w-3xl mx-auto mb-16">
-                        <div className="text-sm uppercase tracking-[0.2em] text-gray-600 font-bold mb-4">Our Team</div>
+                        <div className="text-sm uppercase tracking-[0.2em] text-brand font-bold mb-4">Our Team</div>
                         <h2 className="text-4xl sm:text-5xl font-black mb-6 text-gray-900">
                             Meet the
-                            <span className="text-gray-600 ml-3">
+                            <span className="text-brand ml-3">
                                 Experts
                             </span>
                         </h2>
@@ -46,17 +46,17 @@ export default function TeamSection() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                                     <div className="flex gap-4">
                                         {member.socials?.linkedin && (
-                                            <a href={member.socials.linkedin} className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white hover:text-gray-600 transition-colors">
+                                            <a href={member.socials.linkedin} className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white hover:text-brand transition-colors">
                                                 <Linkedin className="w-5 h-5" />
                                             </a>
                                         )}
                                         {member.socials?.twitter && (
-                                            <a href={member.socials.twitter} className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white hover:text-gray-600 transition-colors">
+                                            <a href={member.socials.twitter} className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white hover:text-brand transition-colors">
                                                 <Twitter className="w-5 h-5" />
                                             </a>
                                         )}
                                         {member.socials?.email && (
-                                            <a href={`mailto:${member.socials.email}`} className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white hover:text-gray-600 transition-colors">
+                                            <a href={`mailto:${member.socials.email}`} className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white hover:text-brand transition-colors">
                                                 <Mail className="w-5 h-5" />
                                             </a>
                                         )}

@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Filter, MapPin, Calendar, Ruler, DollarSign, CheckCircle } from "lucide-react";
+import { ArrowRight, Filter, MapPin, Calendar, Ruler, CheckCircle } from "lucide-react";
 import { allProjects, projectCategories, type Project } from "@/lib/data/projectsData";
 import ScrollAnimation from "@/components/ui/scroll-animation";
 import StaggerAnimation from "@/components/ui/stagger-animation";
@@ -22,7 +22,7 @@ function ProjectsContent() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gray-600 text-white pt-32 pb-20">
+      <section className="relative overflow-hidden bg-brand text-white pt-32 pb-20">
         {/* Animated Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] [background-size:24px_24px]"></div>
@@ -67,7 +67,7 @@ function ProjectsContent() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 ${
                   selectedCategory === category
-                    ? "bg-gray-600 text-white shadow-lg shadow-gray-700/30 scale-105"
+                    ? "bg-brand text-white shadow-lg shadow-gray-700/30 scale-105"
                     : "bg-white text-gray-700 border-2 border-gray-200 hover:border-teal-300 hover:bg-gray-50"
                 }`}
               >
@@ -78,8 +78,8 @@ function ProjectsContent() {
 
           {/* Projects Count */}
           <div className="text-center mb-8">
-            <p className="text-gray-600">
-              Showing <span className="font-bold text-gray-600">{filteredProjects.length}</span> project
+            <p className="text-brand">
+              Showing <span className="font-bold text-brand">{filteredProjects.length}</span> project
               {filteredProjects.length !== 1 ? "s" : ""}
             </p>
           </div>
@@ -117,7 +117,7 @@ function ProjectsContent() {
 
                     {/* Category Badge */}
                     <div className="absolute top-3 left-3 z-10">
-                      <span className="px-3 py-1.5 bg-gray-600 text-white rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
+                      <span className="px-3 py-1.5 bg-brand text-white rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
                         {project.category}
                       </span>
                     </div>
@@ -132,27 +132,27 @@ function ProjectsContent() {
 
                   {/* Project Info */}
                   <div className="p-5 flex flex-col flex-1">
-                    <h3 className="text-xl font-black text-gray-900 mb-1.5 group-hover:text-gray-600 transition-colors">
+                    <h3 className="text-xl font-black text-gray-900 mb-1.5 group-hover:text-brand transition-colors">
                       {project.title}
                     </h3>
-                    <div className="flex items-center gap-2 text-gray-600 mb-3">
+                    <div className="flex items-center gap-2 text-brand mb-3">
                       <MapPin className="w-3.5 h-3.5" />
                       <span className="text-xs font-medium">{project.location}</span>
                     </div>
 
-                    <p className="text-gray-600 text-xs mb-4 line-clamp-2">{project.description}</p>
+                    <p className="text-brand text-xs mb-4 line-clamp-2">{project.description}</p>
 
                     {/* Stats */}
                     <div className="grid grid-cols-2 gap-3 mb-3 pb-3 border-b border-gray-200">
                       <div className="flex items-center gap-1.5">
-                        <Ruler className="w-3.5 h-3.5 text-gray-600" />
+                        <Ruler className="w-3.5 h-3.5 text-brand" />
                         <div>
                           <p className="text-xs text-gray-500">Size</p>
                           <p className="text-xs font-bold text-gray-900">{project.stats.size}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5 text-gray-600" />
+                        <Calendar className="w-3.5 h-3.5 text-brand" />
                         <div>
                           <p className="text-xs text-gray-500">Duration</p>
                           <p className="text-xs font-bold text-gray-900">{project.stats.duration}</p>
@@ -174,7 +174,7 @@ function ProjectsContent() {
                             </span>
                           ))}
                           {project.features.length > 3 && (
-                            <span className="inline-flex items-center px-2 py-0.5 bg-gray-100 text-gray-600 rounded-full text-xs font-semibold">
+                            <span className="inline-flex items-center px-2 py-0.5 bg-gray-100 text-brand rounded-full text-xs font-semibold">
                               +{project.features.length - 3} more
                             </span>
                           )}
@@ -182,16 +182,6 @@ function ProjectsContent() {
                       </div>
                     )}
 
-                    {/* View Details Button - Pushed to bottom */}
-                    <div className="mt-auto pt-3">
-                      <Button
-                        variant="outline"
-                        className="w-full border-2 border-gray-200 text-gray-700 hover:bg-gray-600 hover:border-gray-600 hover:text-white rounded-full font-bold text-sm py-2 transition-all duration-300 group/btn"
-                      >
-                        View Details
-                        <ArrowRight className="ml-2 w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                      </Button>
-                    </div>
                   </div>
 
                   {/* Hover Shine Effect */}
@@ -201,7 +191,7 @@ function ProjectsContent() {
             </StaggerAnimation>
           ) : (
             <div className="text-center py-20">
-              <p className="text-xl text-gray-600 mb-4">No projects found in this category.</p>
+              <p className="text-xl text-brand mb-4">No projects found in this category.</p>
               <Button
                 onClick={() => setSelectedCategory("All")}
                 className="bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-700 hover:to-cyan-600 text-white rounded-full px-6 py-3 font-bold"
@@ -220,7 +210,7 @@ function ProjectsContent() {
               </p>
               <Button
                 size="lg"
-                className="bg-white text-gray-600 hover:bg-gray-100 rounded-full px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-black shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                className="bg-white text-brand hover:bg-gray-100 rounded-full px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-black shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
                 asChild
               >
                 <a href="/quote">

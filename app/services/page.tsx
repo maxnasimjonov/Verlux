@@ -37,14 +37,37 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-8 lg:px-16 bg-gray-600 text-white overflow-hidden">
+      {/* Hero Section with Diagonal Image */}
+      <section className="relative pt-32 pb-20 bg-brand text-white overflow-hidden min-h-[500px]">
+        {/* Background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] [background-size:24px_24px]"></div>
         </div>
-        <div className="container mx-auto max-w-7xl relative z-10">
+
+        {/* Diagonal Image Container */}
+        <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
+          {/* Diagonal clip path container */}
+          <div
+            className="absolute inset-0"
+            style={{
+              clipPath: 'polygon(25% 0, 100% 0, 100% 100%, 0 100%)'
+            }}
+          >
+            <Image
+              src="/gallery/balcony/balcony-3.jpg"
+              alt="Construction work"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/20"></div>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="container mx-auto max-w-7xl relative z-10 px-8 lg:px-16">
           <ScrollAnimation direction="up" delay={0.1}>
-            <div className="max-w-3xl">
+            <div className="max-w-2xl">
               <div className="text-sm uppercase tracking-[0.2em] text-gray-200 font-bold mb-4">Our Services</div>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
                 Comprehensive
@@ -54,7 +77,7 @@ export default function ServicesPage() {
                 </span>
               </h1>
               <p className="text-xl text-gray-50/90 leading-relaxed">
-                From restoration to new installations, we provide expert construction services tailored to your building's unique needs.
+                From restoration to new installations, we provide expert construction services tailored to your building&apos;s unique needs.
               </p>
             </div>
           </ScrollAnimation>
@@ -91,12 +114,12 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gray-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-[1]"></div>
+                  <div className="absolute inset-0 bg-brand opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-[1]"></div>
 
                   {/* Content */}
                   <div className="relative z-10 flex flex-col justify-between h-full p-8">
                     <div>
-                      <div className="w-16 h-16 rounded-2xl bg-gray-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg">
+                      <div className="w-16 h-16 rounded-2xl bg-brand flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg">
                         <Icon className="w-8 h-8 text-white" />
                       </div>
                       <h3 className="text-3xl font-black mb-2 text-white drop-shadow-lg">

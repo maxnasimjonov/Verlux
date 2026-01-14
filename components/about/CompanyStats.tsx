@@ -4,29 +4,21 @@ import { stats } from "@/lib/data/aboutData";
 
 export default function CompanyStats() {
     return (
-        <section className="py-20 bg-gray-800 text-white relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10">
-                <div className="absolute inset-0" style={{
-                    backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
-                    backgroundSize: '30px 30px'
-                }}></div>
-            </div>
-
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <section className="py-16 bg-brand text-white">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                     {stats.map((stat, index) => {
                         const Icon = stat.icon;
                         return (
                             <div key={index} className="text-center group">
-                                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/10 mb-6 group-hover:scale-110 group-hover:bg-white/20 transition-all duration-300">
-                                    <Icon className="w-8 h-8 text-gray-500" />
+                                <div className="inline-flex items-center justify-center w-14 h-14 bg-white/10 mb-4 group-hover:bg-white/20 transition-all duration-300">
+                                    <Icon className="w-7 h-7 text-white" />
                                 </div>
-                                <div className="text-5xl font-black mb-2 text-white">
+                                <div className="text-4xl lg:text-5xl font-black mb-2 text-white">
                                     {stat.value}
                                 </div>
-                                <div className="text-xl font-bold mb-2 text-white">{stat.label}</div>
-                                <div className="text-gray-400/80 text-sm">{stat.description}</div>
+                                <div className="text-base font-semibold mb-1 text-white/90 uppercase tracking-wider">{stat.label}</div>
+                                <div className="text-white/60 text-sm">{stat.description}</div>
                             </div>
                         );
                     })}

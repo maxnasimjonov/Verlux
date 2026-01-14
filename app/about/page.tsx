@@ -1,6 +1,5 @@
 import AboutHero from "@/components/about/AboutHero";
 import CompanyStory from "@/components/about/CompanyStory";
-import TeamSection from "@/components/about/TeamSection";
 import CompanyStats from "@/components/about/CompanyStats";
 import WhyDifferent from "@/components/about/WhyDifferent";
 import { Metadata } from "next";
@@ -16,7 +15,6 @@ export default function AboutPage() {
             <AboutHero />
             <CompanyStory />
             <CompanyStats />
-            <TeamSection />
             <WhyDifferent />
         </div>
     );

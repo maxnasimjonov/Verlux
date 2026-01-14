@@ -3,13 +3,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight, ChevronDown, Phone } from "lucide-react";
 import { Construction } from "lucide-react";
 import { services } from "@/lib/data/homeData";
 
 const navLinks = [
-  { href: "/projects", label: "Projects" },
+  // { href: "/projects", label: "Projects" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/about", label: "About Us" },
 ];
 
@@ -31,11 +31,10 @@ export default function Navbar() {
   const handleServicesMouseLeave = () => {
     const timeout = setTimeout(() => {
       setServicesDropdownOpen(false);
-    }, 200); // 200ms delay before closing
+    }, 200);
     setDropdownTimeout(timeout);
   };
 
-  // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
       if (dropdownTimeout) {
@@ -50,115 +49,115 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg bg-gray-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <div className="w-10 h-10 bg-brand flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
               <Construction className="w-6 h-6 text-white" />
             </div>
-            <span className="text-2xl font-black text-gray-900 group-hover:text-gray-600 transition-colors">
+            <span className="text-2xl font-black text-gray-900 group-hover:text-brand transition-colors">
               VERLUX
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            {/* Home Link */}
-            <Link
-              href="/"
-              className={`relative text-sm font-bold uppercase tracking-wider transition-colors ${pathname === "/"
-                  ? "text-gray-600"
-                  : "text-gray-700 hover:text-gray-600"
-                }`}
-            >
-              Home
-              {pathname === "/" && (
-                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gray-600 rounded-full"></span>
-              )}
-            </Link>
-
-            {/* Services Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={handleServicesMouseEnter}
-              onMouseLeave={handleServicesMouseLeave}
-            >
-              <button
-                className={`relative text-sm font-bold uppercase tracking-wider transition-colors flex items-center gap-1 ${pathname === "/services" || servicesDropdownOpen
-                    ? "text-gray-600"
-                    : "text-gray-700 hover:text-gray-600"
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden lg:flex items-center justify-center flex-1">
+            <div className="flex items-center gap-8">
+              {/* Home Link */}
+              <Link
+                href="/"
+                className={`relative text-sm font-bold uppercase tracking-wider transition-colors ${pathname === "/"
+                    ? "text-brand"
+                    : "text-gray-700 hover:text-brand"
                   }`}
               >
-                Services
-                <ChevronDown className={`w-4 h-4 transition-transform ${servicesDropdownOpen ? "rotate-180" : ""}`} />
-                {(pathname === "/services" || servicesDropdownOpen) && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gray-600 rounded-full"></span>
+                Home
+                {pathname === "/" && (
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand"></span>
                 )}
-              </button>
+              </Link>
 
-              {/* Dropdown Menu */}
-              {servicesDropdownOpen && (
-                <div
-                  className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
-                  onMouseEnter={handleServicesMouseEnter}
-                  onMouseLeave={handleServicesMouseLeave}
-                >
-                  {services.map((service, index) => (
-                    <Link
-                      key={index}
-                      href={`/services/${service.slug}`}
-                      className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-600 transition-colors"
-                    >
-                      <div className="font-semibold">{service.title}</div>
-                      <div className="text-xs text-gray-500 mt-0.5">{service.subtitle}</div>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Other Nav Links */}
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`relative text-sm font-bold uppercase tracking-wider transition-colors ${isActive
-                      ? "text-gray-600"
-                      : "text-gray-700 hover:text-gray-600"
+              {/* Services Dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={handleServicesMouseEnter}
+                onMouseLeave={handleServicesMouseLeave}
+              >
+                <button
+                  className={`relative text-sm font-bold uppercase tracking-wider transition-colors flex items-center gap-1 ${pathname === "/services" || servicesDropdownOpen
+                      ? "text-brand"
+                      : "text-gray-700 hover:text-brand"
                     }`}
                 >
-                  {link.label}
-                  {isActive && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gray-600 rounded-full"></span>
+                  Services
+                  <ChevronDown className={`w-4 h-4 transition-transform ${servicesDropdownOpen ? "rotate-180" : ""}`} />
+                  {(pathname === "/services" || servicesDropdownOpen) && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand"></span>
                   )}
-                </Link>
-              );
-            })}
+                </button>
+
+                {/* Dropdown Menu */}
+                {servicesDropdownOpen && (
+                  <div
+                    className="absolute top-full left-0 mt-2 w-64 bg-white shadow-xl border border-gray-200 py-2 z-50"
+                    onMouseEnter={handleServicesMouseEnter}
+                    onMouseLeave={handleServicesMouseLeave}
+                  >
+                    {services.map((service, index) => (
+                      <Link
+                        key={index}
+                        href={`/services/${service.slug}`}
+                        className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand transition-colors"
+                      >
+                        <div className="font-semibold">{service.title}</div>
+                        <div className="text-xs text-gray-500 mt-0.5">{service.subtitle}</div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Other Nav Links */}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`relative text-sm font-bold uppercase tracking-wider transition-colors ${isActive
+                        ? "text-brand"
+                        : "text-gray-700 hover:text-brand"
+                      }`}
+                  >
+                    {link.label}
+                    {isActive && (
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand"></span>
+                    )}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
 
           {/* Phone & CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="tel:+14374520850"
-              className="flex items-center gap-2 text-gray-700 hover:text-gray-600 transition-colors font-semibold"
+              className="flex items-center gap-2 text-gray-700 hover:text-brand transition-colors font-semibold"
             >
               <Phone className="w-4 h-4" />
               <span className="text-sm">+1 (437) 452-0850</span>
             </a>
-            <Button
-              className="bg-gray-600 hover:bg-gray-700 text-white rounded-full px-6 py-2 font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-              asChild
+            <Link
+              href="/quote"
+              className="bg-brand hover:bg-brand-hover text-white px-6 py-2.5 font-bold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center"
             >
-              <Link href="/quote">
-                Get Quote
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
-            </Button>
+              Get Quote
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 text-gray-700 hover:bg-gray-100 transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? (
@@ -181,19 +180,19 @@ export default function Navbar() {
             <a
               href="tel:+14374520850"
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-2 text-gray-700 hover:text-gray-600 transition-colors font-semibold py-2 border-b border-gray-200 pb-4"
+              className="flex items-center gap-2 text-gray-700 hover:text-brand transition-colors font-semibold py-2 border-b border-gray-200 pb-4"
             >
               <Phone className="w-5 h-5" />
               <span>+1 (437) 452-0850</span>
             </a>
-            
+
             {/* Home Link */}
             <Link
               href="/"
               onClick={() => setIsOpen(false)}
               className={`text-base font-bold uppercase tracking-wider py-2 transition-colors ${pathname === "/"
-                  ? "text-gray-600 border-l-4 border-gray-600 pl-4"
-                  : "text-gray-700 hover:text-gray-600 hover:pl-4 transition-all"
+                  ? "text-brand border-l-4 border-brand pl-4"
+                  : "text-gray-700 hover:text-brand hover:pl-4 transition-all"
                 }`}
             >
               Home
@@ -204,8 +203,8 @@ export default function Navbar() {
               <button
                 onClick={() => setServicesMobileOpen(!servicesMobileOpen)}
                 className={`w-full text-left text-base font-bold uppercase tracking-wider py-2 transition-colors flex items-center justify-between ${pathname === "/services"
-                    ? "text-gray-600 border-l-4 border-gray-600 pl-4"
-                    : "text-gray-700 hover:text-gray-600 pl-4"
+                    ? "text-brand border-l-4 border-brand pl-4"
+                    : "text-gray-700 hover:text-brand pl-4"
                   }`}
               >
                 Services
@@ -221,7 +220,7 @@ export default function Navbar() {
                         setIsOpen(false);
                         setServicesMobileOpen(false);
                       }}
-                      className="block py-2 text-sm text-gray-600 hover:text-gray-600 transition-colors"
+                      className="block py-2 text-sm text-gray-600 hover:text-brand transition-colors"
                     >
                       <div className="font-semibold">{service.title}</div>
                       <div className="text-xs text-gray-500">{service.subtitle}</div>
@@ -240,8 +239,8 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setIsOpen(false)}
                   className={`text-base font-bold uppercase tracking-wider py-2 transition-colors ${isActive
-                      ? "text-gray-600 border-l-4 border-gray-600 pl-4"
-                      : "text-gray-700 hover:text-gray-600 hover:pl-4 transition-all"
+                      ? "text-brand border-l-4 border-brand pl-4"
+                      : "text-gray-700 hover:text-brand hover:pl-4 transition-all"
                     }`}
                 >
                   {link.label}
@@ -249,15 +248,14 @@ export default function Navbar() {
               );
             })}
             <div className="pt-4 mt-4 border-t border-gray-200">
-              <Button
-                className="w-full bg-gray-600 hover:bg-gray-700 text-white rounded-full py-6 font-bold shadow-lg"
-                asChild
+              <Link
+                href="/quote"
+                onClick={() => setIsOpen(false)}
+                className="w-full bg-brand hover:bg-brand-hover text-white py-4 font-bold shadow-lg flex items-center justify-center"
               >
-                <Link href="/quote" onClick={() => setIsOpen(false)}>
-                  Get Free Quote
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </Button>
+                Get Free Quote
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>
@@ -265,4 +263,3 @@ export default function Navbar() {
     </nav>
   );
 }
-

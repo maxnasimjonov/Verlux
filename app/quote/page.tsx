@@ -242,7 +242,7 @@ function QuoteContent() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gray-600 text-white pt-32 pb-20">
+      <section className="relative overflow-hidden bg-brand text-white pt-32 pb-20">
         {/* Animated Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] [background-size:24px_24px]"></div>
@@ -303,9 +303,9 @@ function QuoteContent() {
                     href="tel:+14374520850"
                     className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 border border-gray-200 hover:border-teal-300 hover:bg-gray-200 transition-all"
                   >
-                    <Phone className="w-5 h-5 text-gray-600 shrink-0" />
+                    <Phone className="w-5 h-5 text-brand shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold text-gray-600 truncate">+1 (437) 452-0850</p>
+                      <p className="text-sm font-semibold text-brand truncate">+1 (437) 452-0850</p>
                     </div>
                   </a>
                   <a
@@ -318,18 +318,18 @@ function QuoteContent() {
                     </div>
                   </a>
                   <div className="flex items-start gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100">
-                    <MapPin className="w-5 h-5 text-gray-600 shrink-0 mt-0.5" />
-                    <address className="text-xs text-gray-600 not-italic leading-relaxed">
+                    <MapPin className="w-5 h-5 text-brand shrink-0 mt-0.5" />
+                    <address className="text-xs text-brand not-italic leading-relaxed">
                       8 McKee Ave, North York, ON M2N 7E5
                     </address>
                   </div>
                 </div>
                 <div className="pt-4 border-t border-gray-100">
                   <h3 className="font-bold text-gray-900 mb-3 text-sm flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-gray-600" />
+                    <CheckCircle className="w-4 h-4 text-brand" />
                     Why Choose Us?
                   </h3>
-                  <ul className="space-y-2 text-xs text-gray-600" role="list">
+                  <ul className="space-y-2 text-xs text-brand" role="list">
                     {["Licensed & Insured", "Award-Winning", "24/7 Support", "Competitive Pricing"].map((item) => (
                       <li key={item} className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-gray-700 shrink-0"></div>
@@ -346,11 +346,11 @@ function QuoteContent() {
               <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-8">
                 {isSuccess ? (
                   <div className="text-center py-12 animate-in fade-in duration-500">
-                    <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gray-600 flex items-center justify-center shadow-xl shadow-gray-700/40">
+                    <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-brand flex items-center justify-center shadow-xl shadow-gray-700/40">
                       <CheckCircle className="w-12 h-12 text-white" aria-hidden="true" />
                     </div>
                     <h2 className="text-3xl font-black text-gray-900 mb-3">Request Received!</h2>
-                    <p className="text-base text-gray-600 mb-4">
+                    <p className="text-base text-brand mb-4">
                       We&apos;ve received your quote request and will get back to you within 24 hours.
                     </p>
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 border border-gray-200 text-gray-700 font-semibold text-sm">
@@ -613,7 +613,7 @@ function QuoteContent() {
                       </Button>
                       <p className="mt-3 text-xs text-gray-500 text-center">
                         By submitting, you agree to our{" "}
-                        <a href="/privacy" className="text-gray-600 hover:text-gray-700 font-semibold underline">
+                        <a href="/privacy" className="text-brand hover:text-gray-700 font-semibold underline">
                           privacy policy
                         </a>
                         .
