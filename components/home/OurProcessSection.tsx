@@ -35,7 +35,7 @@ const steps = [
     title: "Completion & Handover",
     description: "We conduct final inspections, address any concerns, and ensure everything meets our high standards before handing over your completed project with full documentation.",
     icon: CheckCircle,
-    image: "/assests/apartment-building-scaffolding-construction.JPG",
+    image: "/gallery/caulking/caulking-3.jpg",
     gradient: "from-green-500 to-emerald-500",
   },
 ];

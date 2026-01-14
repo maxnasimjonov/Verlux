@@ -27,7 +27,7 @@ export default function LoadingWithDelay({ minimumDelay = 800 }: LoadingWithDela
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop",
         "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop",
         // Home page service images
-        "/assests/apartment-building-scaffolding-construction.JPG",
+        "/gallery/caulking/caulking-3.jpg",
         "/assests/building-exterior-textured-brick-scaffolding.JPG",
         "/assests/masonry-brick-wall-construction-01.JPG",
         "/assests/interior-wall-black-stripe-painted.JPG",

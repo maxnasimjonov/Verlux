@@ -45,7 +45,7 @@ const features = [
     icon: CheckCircle2,
     title: "Satisfaction Guaranteed",
     description: "We stand behind our work with comprehensive warranties and a commitment to your complete satisfaction.",
-    image: "/assests/apartment-building-scaffolding-construction.JPG",
+    image: "/gallery/coating/coating-8.jpg",
     gradient: "from-gray-700 to-red-500",
   },
 ];

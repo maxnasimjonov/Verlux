@@ -260,7 +260,7 @@ export default function Home() {
             <div className="relative">
               <div className="relative h-[600px] overflow-hidden">
                 <Image
-                  src="/assests/apartment-building-scaffolding-construction.JPG"
+                  src="/gallery/coating/coating-8.jpg"
                   alt="Construction scaffolding"
                   fill
                   className="object-cover"

@@ -51,20 +51,20 @@ export default function FirstVisitLoader({ children, minimumDelay = 800 }: First
       if (pathname === "/") {
         // Home page service images
         criticalImages.push(
-          "/assests/apartment-building-scaffolding-construction.JPG",
+          "/gallery/caulking/caulking-3.jpg",
           "/assests/building-exterior-textured-brick-scaffolding.JPG",
           "/assests/masonry-brick-wall-construction-01.JPG",
           "/assests/interior-wall-black-stripe-painted.JPG",
           "/assests/rooftop-davit-system-maintenance.JPG",
           "/assests/rooftop-hvac-city-skyline-view.JPG",
           // Featured projects
-          "/assests/apartment-building-scaffolding-construction.JPG",
+          "/gallery/caulking/caulking-3.jpg",
           "/assests/rooftop-davit-equipment-landscape-view.JPG"
         );
       } else if (pathname === "/projects") {
         // Projects page - preload first few project images
         criticalImages.push(
-          "/assests/apartment-building-scaffolding-construction.JPG",
+          "/gallery/caulking/caulking-3.jpg",
           "/assests/building-exterior-textured-brick-scaffolding.JPG",
           "/assests/interior-wall-black-stripe-painted.JPG",
           "/assests/rooftop-davit-equipment-landscape-view.JPG",

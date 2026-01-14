@@ -345,7 +345,7 @@ export const featuredProjects: Project[] = [
     category: "Residential",
     location: "Downtown Area",
     year: "2024",
-    image: "/assests/apartment-building-scaffolding-construction.JPG",
+    image: "/gallery/caulking/caulking-3.jpg",
     stats: { size: "3,200 sqft", duration: "8 months" },
   },
   {

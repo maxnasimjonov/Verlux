@@ -9,7 +9,7 @@ export const serviceGalleryImages: Record<string, string[]> = {
     "/gallery/balcony/balcony-6.jpg",
     "/gallery/balcony/balcony-7.jpg",
     "/gallery/balcony/balcony-8.jpg",
-    "/assests/apartment-building-scaffolding-construction.JPG",
+    "/gallery/caulking/caulking-3.jpg",
   ],
   "masonry-restoration": [
     "/gallery/masonry/masonry-1.jpg",

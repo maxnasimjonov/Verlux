@@ -36,7 +36,7 @@ export const galleryImages: GalleryImage[] = [
   { src: "/gallery/balcony/balcony-9.jpg", alt: "Balcony project completion", category: "balcony" },
   { src: "/gallery/balcony/balcony-before.jpg", alt: "Balcony before restoration", category: "balcony" },
   { src: "/gallery/balcony/balcony-after.jpg", alt: "Balcony after restoration", category: "balcony" },
-  { src: "/assests/apartment-building-scaffolding-construction.JPG", alt: "Balcony scaffolding work", category: "balcony" },
+  { src: "/gallery/caulking/caulking-3.jpg", alt: "Balcony scaffolding work", category: "balcony" },
 
   // Masonry Restoration
   { src: "/gallery/masonry/masonry-1.jpg", alt: "Masonry brick restoration", category: "masonry" },

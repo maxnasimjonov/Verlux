@@ -24,9 +24,9 @@ export const allProjects: Project[] = [
     serviceType: "Residential Construction",
     location: "Downtown Toronto",
     year: "2024",
-    image: "/assests/apartment-building-scaffolding-construction.JPG",
+    image: "/gallery/caulking/caulking-3.jpg",
     images: [
-      "/assests/apartment-building-scaffolding-construction.JPG",
+      "/gallery/caulking/caulking-3.jpg",
       "/assests/brickwork-installation-worker-scaffolding.JPG",
       "/assests/building-facade-construction-worker.JPG",
     ],
