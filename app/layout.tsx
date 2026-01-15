@@ -19,10 +19,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Verlux - Building Your Dreams, One Brick at a Time",
   description: "Expert construction services with unmatched quality and dedication. Balcony restoration, masonry restoration, roofing, painting, and more.",
-  icons: {
-    icon: "/verlux-logo.png",
-    apple: "/verlux-logo.png",
-  },
 };
 
 export default function RootLayout({
