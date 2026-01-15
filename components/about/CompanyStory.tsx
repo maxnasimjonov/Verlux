@@ -50,7 +50,7 @@ export default function CompanyStory() {
                         </div>
                         {/* Experience badge */}
                         <div className="absolute -bottom-6 -right-6 bg-brand text-white px-8 py-6 shadow-xl">
-                            <div className="text-4xl font-black">15+</div>
+                            <div className="text-4xl font-black">6+</div>
                             <div className="text-sm uppercase tracking-wider">Years Experience</div>
                         </div>
                     </div>

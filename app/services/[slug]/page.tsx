@@ -413,7 +413,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                       />
                       <div className="absolute inset-0 flex items-center justify-center bg-black/40">
                         <div className="text-center p-10 bg-white border-2 border-brand max-w-sm">
-                          <div className="text-5xl font-bold text-brand mb-2">15+</div>
+                          <div className="text-5xl font-bold text-brand mb-2">6+</div>
                           <div className="text-base font-semibold text-gray-700 uppercase tracking-wide">Years of Experience</div>
                           <div className="text-sm text-gray-600 mt-3">In {service.fullTitle.toLowerCase()}</div>
                         </div>

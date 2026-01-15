@@ -375,8 +375,8 @@ export const featuredProjects: Project[] = [
 ];
 
 export const stats: Stat[] = [
-  { value: "15+", label: "Years Experience", icon: "TrendingUp", color: "text-emerald-400" },
-  { value: "500+", label: "Projects Completed", icon: "Target", color: "text-blue-400" },
+  { value: "6+", label: "Years Experience", icon: "TrendingUp", color: "text-emerald-400" },
+  { value: "35+", label: "Projects Completed", icon: "Target", color: "text-blue-400" },
   { value: "98%", label: "Client Satisfaction", icon: "Star", color: "text-cyan-400" },
   { value: "24/7", label: "Support Available", icon: "Zap", color: "text-purple-400" },
 ];

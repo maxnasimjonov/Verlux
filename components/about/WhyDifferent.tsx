@@ -36,7 +36,7 @@ export default function WhyDifferent() {
                                 What Makes Us Different
                             </h2>
                             <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                                Since 2005, Verlux has been committed to doing things differently. We&apos;ve identified the common challenges in the construction industry and built our company around solving them.
+                                Since 2020, Verlux has been committed to doing things differently. We&apos;ve identified the common challenges in the construction industry and built our company around solving them.
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">

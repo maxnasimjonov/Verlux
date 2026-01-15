@@ -29,7 +29,7 @@ export const companyStory = {
     title: "Building a Legacy of Excellence",
     subtitle: "From humble beginnings to industry leaders",
     description: [
-        "Founded in 2005, Verlux began with a simple mission: to bring honesty, quality, and innovation to the construction industry. What started as a small team of three dedicated builders has grown into a premier construction firm serving the entire region.",
+        "Founded in 2020, Verlux began with a simple mission: to bring honesty, quality, and innovation to the construction industry. What started as a small team of three dedicated builders has grown into a premier construction firm serving the entire region.",
         "Over the past two decades, we've had the privilege of transforming skylines and building the foundations for countless businesses and families. Our journey has been defined not just by the structures we build, but by the relationships we've forged along the way.",
         "Today, Verlux stands as a testament to what can be achieved when you refuse to compromise on quality. We combine traditional craftsmanship with cutting-edge technology to deliver projects that stand the test of time."
     ],
@@ -43,23 +43,23 @@ export const stats: Stat[] = [
         label: "Years of Experience",
         value: "18+",
         icon: Clock,
-        description: "Delivering excellence since 2005"
+        description: "Delivering excellence since 2020"
     },
     {
         label: "Projects Completed",
-        value: "500+",
+        value: "35+",
         icon: Building2,
         description: "Across residential and commercial sectors"
     },
     {
         label: "Team Members",
-        value: "45+",
+        value: "20+",
         icon: Users,
         description: "Dedicated professionals and craftsmen"
     },
     {
         label: "Awards Won",
-        value: "24",
+        value: "9",
         icon: Trophy,
         description: "Recognition for design and safety"
     }
