@@ -16,11 +16,6 @@ const services = servicesData.map((service) => ({
   label: service.fullTitle,
 }));
 
-const legalLinks = [
-  { href: "/privacy", label: "Privacy Policy" },
-  { href: "/terms", label: "Terms of Service" },
-];
-
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -81,20 +76,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6 pt-6 border-t border-gray-200">
-              <ul className="space-y-3">
-                {legalLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-gray-500 hover:text-brand transition-colors text-sm"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
 
           {/* Services Links - Centered */}

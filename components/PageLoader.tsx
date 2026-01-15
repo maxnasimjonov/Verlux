@@ -77,7 +77,7 @@ export default function FirstVisitLoader({ children, minimumDelay = 800 }: First
       // Preload images
       const imagePromises = criticalImages.map((src) => {
         return new Promise<void>((resolve) => {
-          const img = new Image();
+          const img = new window.Image();
           img.src = src;
           img.onload = () => resolve();
           img.onerror = () => resolve(); // Don't block on error
